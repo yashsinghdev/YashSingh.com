@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yash Singh Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2 class="logo">Yash Singh</h2>
+        <nav>
+          <a href="#home">Home</a>
+
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="Project/project.html">Projects</a>
+          <a href="Image/Resume.pdf">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero scroll-animate">
+        <div class="hero-content">
+          <h1>Hi, I am Yash Singh</h1>
+          <h2>Full Stack Developer & Video Editor</h2>
+          <p id="slogan">
+            Bring your brand to life with my expertise in development and
+            creative editing.
+          </p>
+          <a href="#contact" class="btn">Contact Me</a>
+        </div>
+        <div class="hero-image">
+          <img src="Image/logo.jpg" alt="Logo" />
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about scroll-animate">
+        <h2>About Me</h2>
+        <p>
+          I am a skilled professional with a solid foundation in programming and
+          creative problem-solving. My expertise includes:
+        </p>
+        <ul>
+          <li>Full Stack Development</li>
+          <li>Video Editing</li>
+          <li>Strong Communication Skills</li>
+        </ul>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects scroll-animate">
+        <h2>Skills</h2>
+        <!-- Programming Skills -->
+        <div class="skills-category scroll-animate">
+          <h3 id="program">Programming Skills</h3>
+          <div class="skills-grid">
+            <div class="skill scroll-animate">
+              <img src="Image/html.png" alt="HTML" />
+              <p>HTML: <span>98%</span></p>
+            </div>
+
+            <div class="skill scroll-animate">
+              <img src="Image/css.png" alt="CSS" />
+              <p>CSS: <span>80%</span></p>
+            </div>
+            <div class="skill scroll-animate">
+              <img src="Image/Java Script.png" alt="JavaScript" />
+              <p>JavaScript: <span>00%</span></p>
+            </div>
+            <div class="skill scroll-animate">
+              <img src="Image/c.png" alt="C" />
+              <p>C: <span>90%</span></p>
+            </div>
+            <div class="skill scroll-animate">
+              <img src="Image/C++.png" alt="C++" />
+              <p>C++: <span>99%</span></p>
+            </div>
+            <div class="skill scroll-animate">
+              <img src="Image/Python.png" alt="Python" />
+              <p>Python: <span>95%</span></p>
+            </div>
+          </div>
+        </div>
+        <!-- Video Editing Skills -->
+        <div class="skills-category scroll-animate">
+          <h3 id="program">Video Editing Skills</h3>
+          <div class="skills-grid">
+            <div class="skill scroll-animate">
+              <img src="Image/Capcut.png" alt="Wink" />
+              <p>Capcut: <span>100%</span></p>
+            </div>
+            <div class="skill scroll-animate">
+              <img src="Image/Wink.png" alt="Wink" />
+              <p>Wink: <span>100%</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <p>&copy; 2025 Yash Singh. All rights reserved.</p>
+        <div class="contact-details">
+          <h3>Contact Details</h3>
+          <p>Email: yashsinghfire@gmail.com</p>
+          <p>Phone: +9188 1808 9674</p>
+          <p>
+            Instagram:
+            <a href="https://www.instagram.com/yash_rajput.18/" target="_blank"
+              >instagram.com/yash_rajput.18</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollElements = document.querySelectorAll(".scroll-animate");
+
+        // Intersection Observer for scroll animation (unchanged)
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        scrollElements.forEach((el) => observer.observe(el));
+
+        // Smooth scrolling for internal navigation links (except "Projects" link)
+        document.querySelectorAll("header nav a").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const targetHref = this.getAttribute("href");
+
+            // If the link is to the Projects page, do NOT prevent default behavior (normal navigation)
+            if (targetHref === "Projects/Project2.html") {
+              return; // Allow normal navigation to the Projects page
+            }
+
+            // For other links, apply smooth scrolling
+            if (targetHref.startsWith("#")) {
+              // Only smooth scroll for internal anchors
+              e.preventDefault(); // Prevent default behavior for smooth scrolling
+              const targetId = this.getAttribute("href");
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          });
+        });
+
+        // Button Scroll (unchanged)
+        document.querySelector(".btn").addEventListener("click", (e) => {
+          e.preventDefault();
+          document
+            .querySelector("footer")
+            .scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
