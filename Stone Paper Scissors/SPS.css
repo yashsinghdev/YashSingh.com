@@ -123,3 +123,50 @@ header nav a:hover {
     transform: translateY(0);
   }
 }
+
+@media (max-width: 768px) {
+  /* Header Adjustments */
+  header {
+    height: 4rem;
+    font-size: 1.5rem;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header nav a {
+    font-size: 1rem;
+  }
+
+  /* Container and Images */
+  .contaner {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .contaner img {
+    height: 140px;
+    width: 140px;
+    border-radius: 20px;
+  }
+
+  /* Score Section */
+  .score {
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  /* Message Box */
+  .msg {
+    font-size: 1.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
