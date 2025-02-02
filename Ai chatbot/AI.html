@@ -3,23 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Chatbot</title>
+    <title>AI Chat - Premium</title>
     <link rel="stylesheet" href="AI.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h2>AI Chatbot</h2>
-    <div class="chat-container">
-      <div class="chat-box" id="chat-box"></div>
-      <div class="input-container">
-        <input
-          type="text"
-          id="user-input"
-          placeholder="Type a message..."
-          onkeypress="handleKeyPress(event)"
-        />
-        <button onclick="sendMessage()">Send</button>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">YASHNET AI</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#chat">Chat</a></li>
+        <li><a href="../Project/project.html">Project</a></li>
+
+        <!-- <li><a href="#pricing">Pricing</a></li> -->
+        <li><a href="../index.html">Portfolio</a></li>
+      </ul>
+      <a href="../Image/Resume.pdf"
+        ><button class="cta-button">Resume</button></a
+      >
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero animated-section">
+      <div class="hero-content">
+        <h1>Experience the Future of AI Chat</h1>
+        <p>Engage in seamless conversations with our advanced AI chatbot.</p>
+        <button class="cta-button" onclick="scrollToSection('chat')">
+          Start Chatting
+        </button>
       </div>
-    </div>
+      <div class="hero-image">
+        <img src="../Image/Ai_logo.png" alt="AI Chat" />
+      </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chat" class="chat-section animated-section">
+      <div class="chat-container">
+        <div class="chat-header">
+          <h2>Chat with YASHNET</h2>
+        </div>
+        <div class="chat-box" id="chat-box">
+          <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-input">
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Type your message..."
+          />
+          <button id="send-button">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2023 AI Chat. All rights reserved.</p>
+    </footer>
 
     <script src="AI.js"></script>
   </body>
