@@ -128,17 +128,16 @@ header nav a:hover {
   /* Header Adjustments */
   header {
     height: auto;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     flex-direction: column;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
   }
 
   header nav {
-    flex-direction: row;
-    gap: 15px;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
 
   header nav a {
@@ -148,35 +147,37 @@ header nav a:hover {
   /* Container and Images */
   .contaner {
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.5rem;
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .contaner img {
-    height: 160px;
-    width: 160px;
-    border-radius: 20px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+    height: 150px;
+    width: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   }
 
   .contaner img:hover {
     transform: scale(1.05) rotate(3deg);
   }
 
-  /* Score Section */
+  /* Score Section - Fixing the Visibility Issue */
   .score {
-    flex-direction: column;
-    gap: 15px;
-    font-size: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    font-size: 1.5rem;
     text-align: center;
+    padding: 10px;
   }
 
   /* Message Box */
   .msg {
-    font-size: 1.7rem;
-    padding: 1rem 1.8rem;
-    text-align: center;
+    font-size: 1.6rem;
+    padding: 1rem 1.5rem;
     width: 90%;
-    margin: 0 auto;
+    margin: 10px auto;
   }
 }
