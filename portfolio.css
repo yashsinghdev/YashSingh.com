@@ -143,8 +143,8 @@ header nav a:hover {
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #f0a500;
-  box-shadow: 0 0px 50px rgba(0, 0, 0, 0.7);
+  border: 1px solid #0d0d0e;
+  box-shadow: 0 0px 80px #00eeffb3;
   animation: float 4s ease-in-out infinite;
 }
 

@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yash Rajput - Portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
-      <div class="logo"><a href="#">Yash Rajput</a></div>
-      <div class="menu">
-        <a href="#" class="THEME">THEME</a>
-        <a href="../index.html">PORTFOLIO</a>
-        <a href="../Image/Resume.pdf">RESUME</a>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Project Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <a href="#">My Portfolio</a>
+    </div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
 
-    <div class="container">
-      <h1 class="heading">My Projects</h1>
-      <div class="project-list">
-        <div class="project-card">
-          <a href="../FoodProject/Food.html">
-            <h3>Foodies - Premium Food Delivery</h3>
-            <p id="text">
-              "A responsive food delivery website designed using HTML,CSS, and
-              minimal JavaScript. It allows users to explore menus, views food
-              items, and place orders with a clean and user-friendly interface."
-            </p>
-          </a>
-        </div>
-        <div class="project-card">
-          <a href="../Stone Paper Scissors/SPS.html">
-            <h3>Stone Paper Scissor- Game</h3>
-            <p id="text">
-              "It is a simple JavaScript-based game where the user competes
-              against the computer . The Game randomly generates choices and
-              declares the winner based on predefined rules"
-            </p>
-          </a>
-        </div>
-        <div class="project-card">
-          <a href="../Ai chatbot/AI.html">
-            <h3>AI Chatbot</h3>
-            <p id="text">
-              "It is simple chatbox (it's do only basic chat now,I work on
-              advance chat)"
-            </p>
-          </a>
-        </div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1 class="heading">Welcome to My Projects</h1>
+    <p class="subheading">Explore my latest work and creations.</p>
+  </header>
+
+  <!-- Project List -->
+  <section class="container">
+    <div class="project-list">
+      <div class="project-card" data-link="project1.html">
+        <h3>Project 1</h3>
+        <p>A modern web application built with React and Node.js.</p>
+      </div>
+      <div class="project-card" data-link="project2.html">
+        <h3>Project 2</h3>
+        <p>An AI-powered chatbot for customer support.</p>
+      </div>
+      <div class="project-card" data-link="project3.html">
+        <h3>Project 3</h3>
+        <p>A mobile app for fitness tracking and health monitoring.</p>
       </div>
     </div>
-    <script src="project.js"></script>
-  </body>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
 </html>
