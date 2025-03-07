@@ -1,0 +1,9 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(13, 17, 24);
+  overflow: hidden;
+  transform: scale(1.5);
+}
