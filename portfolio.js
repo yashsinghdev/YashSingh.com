@@ -45,3 +45,37 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("footer").scrollIntoView({ behavior: "smooth" });
   });
 });
+const texts = [
+  "Full Stack Developer",
+  "Front End Developer",
+  "Back End Developer",
+];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const speed = 100; // Typing speed
+const delayBetween = 1000; // Delay after full word
+
+function typeEffect() {
+  const typewriter = document.getElementById("typewriter");
+  const currentText = texts[textIndex];
+  let displayedText = currentText.substring(0, charIndex);
+  typewriter.textContent = displayedText;
+
+  if (!isDeleting && charIndex < currentText.length) {
+    charIndex++;
+    setTimeout(typeEffect, speed);
+  } else if (isDeleting && charIndex > 0) {
+    charIndex--;
+    setTimeout(typeEffect, speed / 2);
+  } else {
+    isDeleting = !isDeleting;
+    if (!isDeleting) {
+      textIndex = (textIndex + 1) % texts.length;
+    }
+    setTimeout(typeEffect, delayBetween);
+  }
+}
+
+// Start typing effect after page loads
+document.addEventListener("DOMContentLoaded", typeEffect);

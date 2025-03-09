@@ -100,18 +100,19 @@ header nav a:hover {
   -webkit-text-fill-color: transparent;
 }
 
-.hero-content h2 {
+/* .hero-content h2 {
   font-size: 36px;
   margin-bottom: 15px;
   color: #f0a500;
-}
+} */
 .text {
-  border-right: 3px solid white;
+  border-right: 3px solid #fff305;
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
   font-size: 36px;
   font-weight: bold;
+  color: #f0a500;
   animation: blink 0.8s infinite;
 }
 
