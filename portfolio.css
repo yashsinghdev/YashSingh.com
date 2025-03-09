@@ -105,6 +105,21 @@ header nav a:hover {
   margin-bottom: 15px;
   color: #f0a500;
 }
+.text {
+  border-right: 3px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  font-size: 36px;
+  font-weight: bold;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
 
 .hero-content p {
   margin-bottom: 30px;
@@ -260,7 +275,12 @@ header nav a:hover {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background: linear-gradient(45deg, #ff0000, #00ff00, #ff00ff, #00ffea);
+  background: linear-gradient(
+    45deg,
+    rgb(0, 255, 217),
+    rgb(255, 0, 251),
+    rgb(0, 140, 255)
+  );
   background-size: 600%;
   filter: blur(10px);
   animation: glowing 20s linear infinite;

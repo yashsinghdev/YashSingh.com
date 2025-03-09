@@ -32,11 +32,10 @@
       <section id="home" class="hero scroll-animate">
         <div class="hero-content">
           <h1>Hi, I am Yash Singh</h1>
-          <h2>Full Stack Developer & Video Editor</h2>
-          <p id="slogan">
-            Bring your brand to life with my expertise in development and
-            creative editing.
-          </p>
+          <div class="text" id="typewriter"></div>
+
+          <!-- <h2 id="typewriter" class ="text">Full Stack Developer.</h2> -->
+          <p id="slogan">"Code the Front, Power the Back, Rule the Stack!"</p>
           <a href="#contact" class="btn">Contact Me</a>
         </div>
         <div class="hero-image">
@@ -46,16 +45,20 @@
 
       <!-- About Section -->
       <section id="about" class="about scroll-animate">
-        <h2>About Me</h2>
+        <h2>Who Am I ?</h2>
         <p>
-          I am a skilled professional with a solid foundation in programming and
-          creative problem-solving. My expertise includes:
+          A passionate problem-solver with a strong foundation in programming
+          and a creative mindset. I love crafting digital experiences that blend
+          functionality with aesthetics.
         </p>
         <ul>
-          <li>Full Stack Development</li>
-          <li>Video Editing</li>
-          <li>Strong Communication Skills</li>
+          <li>🚀 Full Stack Developer – Building seamless web solutions.</li>
+          <li>🎯 Strong Communication – Turning ideas into action.</li>
         </ul>
+        <p>
+          Always learning, always evolving. Let’s build something amazing
+          together! 💡✨
+        </p>
       </section>
 
       <!-- Projects Section -->
@@ -93,7 +96,7 @@
           </div>
         </div>
         <!-- Video Editing Skills -->
-        <div class="skills-category scroll-animate">
+        <!-- <div class="skills-category scroll-animate">
           <h3 id="program">Video Editing Skills</h3>
           <div class="skills-grid">
             <div id="btn" class="skill scroll-animate">
@@ -105,7 +108,7 @@
               <p>Wink: <span>100%</span></p>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
     </main>
 
@@ -127,56 +130,6 @@
       </div>
     </footer>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const scrollElements = document.querySelectorAll(".scroll-animate");
-
-        // Intersection Observer for scroll animation (unchanged)
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
-        scrollElements.forEach((el) => observer.observe(el));
-
-        // Smooth scrolling for internal navigation links (except "Projects" link)
-        document.querySelectorAll("header nav a").forEach((link) => {
-          link.addEventListener("click", function (e) {
-            const targetHref = this.getAttribute("href");
-
-            // If the link is to the Projects page, do NOT prevent default behavior (normal navigation)
-            if (targetHref === "Projects/Project2.html") {
-              return; // Allow normal navigation to the Projects page
-            }
-
-            // For other links, apply smooth scrolling
-            if (targetHref.startsWith("#")) {
-              // Only smooth scroll for internal anchors
-              e.preventDefault(); // Prevent default behavior for smooth scrolling
-              const targetId = this.getAttribute("href");
-              const targetElement = document.querySelector(targetId);
-              if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-              }
-            }
-          });
-        });
-
-        // Button Scroll (unchanged)
-        document.querySelector(".btn").addEventListener("click", (e) => {
-          e.preventDefault();
-          document
-            .querySelector("footer")
-            .scrollIntoView({ behavior: "smooth" });
-        });
-      });
-    </script>
+    <script src="portfolio.js"></script>
   </body>
 </html>
