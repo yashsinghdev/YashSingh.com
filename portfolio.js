@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 const texts = [
-  "Full Stack Developer",
-  "Front End Developer",
-  "Back End Developer",
+  "Full Stack Developer.",
+  "Front End Developer.",
+  "Back End Developer.",
 ];
 let textIndex = 0;
 let charIndex = 0;

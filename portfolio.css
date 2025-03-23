@@ -72,8 +72,9 @@ header nav a {
 }
 
 header nav a:hover {
-  color: #f0a500;
+  color: #00f088;
   transform: scale(1.1);
+  text-shadow: 0 0 10px #00f088;
 }
 
 /* Hero Section */
@@ -132,18 +133,19 @@ header nav a:hover {
 .hero-content .btn {
   display: inline-block;
   padding: 12px 25px;
-  background: linear-gradient(135deg, #f0a500, #d18d00);
+  background: linear-gradient(135deg, #00f088, #00db7c);
   color: #141414;
   border-radius: 30px;
   font-weight: bold;
   font-size: 18px;
   transition: background 0.4s, transform 0.3s;
-  box-shadow: 0 4px 15px rgba(240, 165, 0, 0.5);
+  box-shadow: 0 4px 15px #00f088;
 }
 
 .hero-content .btn:hover {
-  background: linear-gradient(135deg, #d18d00, #b57400);
+  background: linear-gradient(135deg, #00f088, #00db7c);
   transform: translateY(-5px);
+  box-shadow: 0 0px 24px #00f088;
 }
 
 .hero-image {
