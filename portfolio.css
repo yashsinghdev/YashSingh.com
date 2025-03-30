@@ -391,15 +391,31 @@ header nav a:hover {
 
 .project-card:hover {
   transform: scale(1.05);
-  /* background: #00f088;
-  box-shadow: 0px 0px 20px #00f088;
-   */
+  background: #ff9800;
+  color: #fff;
+  border: 1px solid #ff9800;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px #ff9800;
+  animation: bounce 0.5s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+  background-attachment: fixed;
+  background-position: 0% 50%;
 }
 
 .project-title {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  color: #ff9800;
+  color: #06e4d2eb;
+  text-shadow: 0px 0px 10px #06e4d2eb;
 }
 
 .project-desc {
