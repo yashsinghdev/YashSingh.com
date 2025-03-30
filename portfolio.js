@@ -79,3 +79,5 @@ function typeEffect() {
 
 // Start typing effect after page loads
 document.addEventListener("DOMContentLoaded", typeEffect);
+
+// projects

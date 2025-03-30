@@ -9,19 +9,23 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
       <div class="container">
-        <h2 class="logo">Yash Singh</h2>
+        <h3 class="logo">Yash Singh</h3>
         <nav>
           <a href="#home">Home</a>
 
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
 
-          <a href="Project/project.html">Projects</a>
           <a href="Image/Resume.pdf">Resume</a>
         </nav>
       </div>
@@ -34,9 +38,36 @@
           <h1>Hi, I am Yash Singh</h1>
           <div class="text" id="typewriter"></div>
 
-          <!-- <h2 id="typewriter" class="text">Full Stack Developer.</h2> -->
           <p id="slogan">"Code the Front, Power the Back, Rule the Stack!"</p>
-          <a href="#contact" class="btn">Contact Me</a>
+          <!-- Social Media Icons -->
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/yash_rajput.18"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/yash-singh-1824a8310/"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yashsinghdev"
+              target="_blank"
+              class="social-link"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:yashsinghfire704@gmail.com" class="social-link">
+              <i class="fas fa-envelope"></i
+            ></a>
+          </div>
+
+          <!-- <a href="#contact" class="btn">Contact Me</a> -->
         </div>
         <div class="hero-image">
           <img src="Image/logo.jpg" alt="Logo" />
@@ -62,7 +93,7 @@
         </p>
       </section>
 
-      <!-- Projects Section -->
+      <!-- Skills Section -->
       <section id="skills" class="projects scroll-animate">
         <h2>Skills</h2>
         <!-- Programming Skills -->
@@ -96,20 +127,42 @@
             </div>
           </div>
         </div>
-        <!-- Video Editing Skills -->
-        <!-- <div class="skills-category scroll-animate">
-          <h3 id="program">Video Editing Skills</h3>
-          <div class="skills-grid">
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/Capcut.png" alt="Capcut" />
-              <p>Capcut: <span>100%</span></p>
-            </div>
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/wink.png" alt="Wink" />
-              <p>Wink: <span>100%</span></p>
-            </div>
+      </section>
+
+      <section id="projects" class="projects scroll-animate">
+        <h2>MY PROJECTS</h2>
+        <div class="projects-container">
+          <div class="project-card">
+            <h3 class="project-title">Food Web UI</h3>
+            <p class="project-desc">
+              A modern Food {UI} web application built with HTML, CSS, JS.
+            </p>
+            <a href="../FoodProject/Food.html" class="btn" target="_blank"
+              >View Project</a
+            >
           </div>
-        </div> -->
+
+          <div class="project-card">
+            <h3 class="project-title">AI Chat Bot</h3>
+            <p class="project-desc">An AI-powered chatbot for Fun.</p>
+            <a href="/Ai chatbot/AI.html" class="btn" target="_blank"
+              >View Project</a
+            >
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">Stone Paper Scissors Game</h3>
+            <p class="project-desc">
+              An engaging and interactive game to test your luck and strategy.
+            </p>
+            <a
+              href="../Stone Paper Scissors/SPS.html"
+              class="btn"
+              target="_blank"
+              >View Project</a
+            >
+          </div>
+        </div>
       </section>
     </main>
 
@@ -119,14 +172,26 @@
         <p>&copy; 2025 Yash Singh. All rights reserved.</p>
         <div class="contact-details">
           <h3>Contact Details</h3>
-          <p>Email: yashsinghfire704@gmail.com</p>
-          <p>Phone: +9188 1808 9674</p>
           <p>
-            Instagram:
-            <a href="https://www.instagram.com/yash_rajput.18/" target="_blank"
+            <i class="fa-solid fa-envelope"></i> Email:
+            <a href="mailto:yashsinghfire704@gmail.com"
+              >yashsinghfire704@gmail.com</a
+            >
+          </p>
+          <p>
+            <i class="fa-brands fa-linkedin"></i> LinkedIn:
+            <a href="https://www.linkedin.com/in/yash-singh-1824a8310/"
+              >linkedin.com/in/yashsingh</a
+            >
+          </p>
+          <p>
+            <i class="fa-brands fa-instagram"></i> Instagram:
+            <a href="https://www.instagram.com/yash_rajput.18/"
               >instagram.com/yash_rajput.18</a
             >
           </p>
+          <p><i class="fa-solid fa-phone"></i> Phone: +91 88 1808 9674</p>
+          <p><i class="fa-solid fa-location-dot"></i> Location: India</p>
         </div>
       </div>
     </footer>
