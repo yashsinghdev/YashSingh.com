@@ -478,85 +478,15 @@ footer a:hover {
   text-shadow: 0 0 10px #f0a500;
 }
 
-/* Scroll to Top Button */
-.scroll-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #f0a500;
-  color: #fff;
-  border-radius: 50%;
-  padding: 10px;
-  font-size: 24px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s, transform 0.3s;
-  z-index: 1000;
+/* footer scroll animatin */
+footer {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.scroll-to-top:hover {
-  background: #e68900;
-  transform: scale(1.1);
-}
-.scroll-to-top:active {
-  transform: scale(0.9);
-}
-
-/* Scroll to Top Button Animation */
-@keyframes scrollToTop {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.scroll-to-top {
-  animation: scrollToTop 1.5s ease-in-out infinite;
-}
-
-/* Scroll to Top Button Visibility */
-.scroll-to-top.hidden {
-  display: none;
-}
-
-/* Scroll to Top Button Visibility Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.scroll-to-top.visible {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Scroll to Top Button Hide Animation */
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.scroll-to-top.hidden {
-  animation: fadeOut 0.5s ease-in-out;
-}
-/* Scroll to Top Button Show Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.scroll-to-top.visible {
-  animation: fadeIn 0.5s ease-in-out;
+footer.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* design on project filter */
