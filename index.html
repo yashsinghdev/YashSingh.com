@@ -128,90 +128,94 @@
           </div>
         </div>
       </section>
+      <!-- Projects -->
 
       <section id="projects" class="projects scroll-animate">
         <h2>MY PROJECTS</h2>
+        <!-- Filter Options -->
+        <div class="filter-container">
+          <div class="filter-logo" onclick="toggleMenu()">🔍 Filter</div>
+          <div class="filter-menu" id="filterMenu">
+            <button class="filter-btn" onclick="filterProjects('all')">
+              All
+            </button>
+            <button class="filter-btn" onclick="filterProjects('ai')">
+              AI
+            </button>
+            <button class="filter-btn" onclick="filterProjects('game')">
+              Games
+            </button>
+            <button class="filter-btn" onclick="filterProjects('ui')">
+              UI
+            </button>
+          </div>
+        </div>
+
         <div class="projects-container">
-          <div class="project-card">
-            <h3 class="project-title">NO use </h3>
+          <div class="project-card" data-category="other">
+            <h3 class="project-title">NO use</h3>
             <p class="project-desc">there is problem in these card</p>
-            <a
-              href="#"
-              class="btn"
-              target="_blank"
-              >View Project</a
-            >
+            <a href="#" class="btn" target="_blank">View Project</a>
           </div>
 
-          <div class="project-card">
+          <div class="project-card" data-category="ai">
             <h3 class="project-title">AI Chat Bot</h3>
             <p class="project-desc">An AI-powered chatbot for Fun.</p>
-            <a
-              href="Ai chatbot/AI.html"
-              class="btn"
-              target="_blank"
+            <a href="Ai chatbot/AI.html" class="btn" target="_blank"
               >View Project</a
             >
           </div>
 
-          <div class="project-card">
+          <div class="project-card" data-category="game">
             <h3 class="project-title">Stone Paper Scissors Game</h3>
             <p class="project-desc">
               An engaging and interactive game to test your luck and strategy.
             </p>
-            <a
-              href="Stone Paper Scissors/SPS.html"
-              class="btn"
-              target="_blank"
+            <a href="Stone Paper Scissors/SPS.html" class="btn" target="_blank"
               >View Project</a
             >
           </div>
-          <div class="projects-container">
-            <div class="project-card">
-              <h3 class="project-title">Food Web UI</h3>
-              <p class="project-desc">Basic Food Order web Page UI</p>
-              <a
-                href="FoodProject/Food.html"
-                class="btn"
-                target="_blank"
-                >View Project</a
-              >
-            </div>
-  
+
+          <div class="project-card" data-category="ui">
+            <h3 class="project-title">Food Web UI</h3>
+            <p class="project-desc">Basic Food Order web Page UI</p>
+            <a href="FoodProject/Food.html" class="btn" target="_blank"
+              >View Project</a
+            >
+          </div>
         </div>
       </section>
-    </main>
 
-    <!-- Footer -->
-    <footer id="contact">
-      <div class="container">
-        <p>&copy; 2025 Yash Singh. All rights reserved.</p>
-        <div class="contact-details">
-          <h3>Contact Details</h3>
-          <p>
-            <i class="fa-solid fa-envelope"></i> Email:
-            <a href="mailto:yashsinghfire704@gmail.com"
-              >yashsinghfire704@gmail.com</a
-            >
-          </p>
-          <p>
-            <i class="fa-brands fa-linkedin"></i> LinkedIn:
-            <a href="https://www.linkedin.com/in/yash-singh-1824a8310/"
-              >linkedin.com/in/yashsingh</a
-            >
-          </p>
-          <p>
-            <i class="fa-brands fa-instagram"></i> Instagram:
-            <a href="https://www.instagram.com/yash_rajput.18/"
-              >instagram.com/yash_rajput.18</a
-            >
-          </p>
-          <p><i class="fa-solid fa-phone"></i> Phone: +91 88 1808 9674</p>
-          <p><i class="fa-solid fa-location-dot"></i> Location: India</p>
+      <!-- Footer -->
+      <footer id="contact">
+        <div class="container">
+          <p>&copy; 2025 Yash Singh. All rights reserved.</p>
+          <div class="contact-details">
+            <h3>Contact Details</h3>
+            <p>
+              <i class="fa-solid fa-envelope"></i> Email:
+              <a href="mailto:yashsinghfire704@gmail.com"
+                >yashsinghfire704@gmail.com</a
+              >
+            </p>
+            <p>
+              <i class="fa-brands fa-linkedin"></i> LinkedIn:
+              <a href="https://www.linkedin.com/in/yash-singh-1824a8310/"
+                >linkedin.com/in/yashsingh</a
+              >
+            </p>
+            <p>
+              <i class="fa-brands fa-instagram"></i> Instagram:
+              <a href="https://www.instagram.com/yash_rajput.18/"
+                >instagram.com/yash_rajput.18</a
+              >
+            </p>
+            <p><i class="fa-solid fa-phone"></i> Phone: +91 88 1808 9674</p>
+            <p><i class="fa-solid fa-location-dot"></i> Location: India</p>
+          </div>
         </div>
-      </div>
-    </footer>
-
+      </footer>
+    </main>
     <script src="portfolio.js"></script>
   </body>
 </html>

@@ -81,3 +81,110 @@ function typeEffect() {
 document.addEventListener("DOMContentLoaded", typeEffect);
 
 // projects
+// add filter option in projects.html
+const filterButtons = document.querySelectorAll(".filter-button");
+const projectCards = document.querySelectorAll(".project-card");
+const allProjects = Array.from(projectCards);
+const allProjectsContainer = document.querySelector(".all-projects");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filterValue = button.getAttribute("data-filter");
+
+    // Remove active class from all buttons and add to the clicked button
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    // Show all projects if "all" is clicked
+    if (filterValue === "all") {
+      allProjects.forEach((card) => (card.style.display = "block"));
+    } else {
+      allProjects.forEach((card) => {
+        if (card.classList.contains(filterValue)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  });
+});
+// Show all projects by default
+allProjects.forEach((card) => (card.style.display = "block"));
+// Add event listener to each project card
+projectCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const projectName = card.querySelector("h3").textContent;
+    const projectDescription = card.querySelector("p").textContent;
+    const projectImage = card.querySelector("img").src;
+
+    // Create a modal to display the project details
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+
+    // Create modal content
+    const modalContent = document.createElement("div");
+    modalContent.classList.add("modal-content");
+
+    // Add close button
+    const closeButton = document.createElement("span");
+    closeButton.classList.add("close");
+    closeButton.innerHTML = "&times;";
+    closeButton.onclick = () => {
+      modal.style.display = "none";
+      document.body.removeChild(modal);
+    };
+
+    // Add project details to modal
+    const title = document.createElement("h2");
+    title.textContent = projectName;
+
+    const description = document.createElement("p");
+    description.textContent = projectDescription;
+
+    const image = document.createElement("img");
+    image.src = projectImage;
+    image.alt = projectName;
+    image.classList.add("modal-image");
+    image.style.width = "100%"; // Set width to 100% of modal content
+    image.style.height = "auto"; // Maintain aspect ratio
+    image.style.maxHeight = "400px"; // Limit height to 400px
+    image.style.objectFit = "contain"; // Ensure the image fits well within the modal
+    image.style.marginBottom = "20px"; // Add margin below the image
+    image.style.borderRadius = "10px"; // Add border radius for aesthetics
+
+    // Append elements to modal content
+    modalContent.appendChild(closeButton);
+    modalContent.appendChild(title);
+    modalContent.appendChild(image);
+    modalContent.appendChild(description);
+
+    // Append modal content to modal
+    modal.appendChild(modalContent);
+
+    // Append modal to body
+    document.body.appendChild(modal);
+
+    // Display the modal
+    modal.style.display = "block";
+  });
+});
+//tongle of filter buttion
+function toggleMenu() {
+  const menu = document.getElementById("filterMenu");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+function filterProjects(category) {
+  const projects = document.querySelectorAll(".project-card");
+  projects.forEach((project) => {
+    if (category === "all" || project.dataset.category === category) {
+      project.style.display = "block";
+    } else {
+      project.style.display = "none";
+    }
+  });
+}

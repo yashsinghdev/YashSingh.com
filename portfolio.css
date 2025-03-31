@@ -391,7 +391,7 @@ header nav a:hover {
 
 .project-card:hover {
   transform: scale(1.05);
-  background: #ff9800;
+  background: #2a2a2a;
   color: #fff;
   border: 1px solid #ff9800;
   border-radius: 10px;
@@ -440,24 +440,170 @@ header nav a:hover {
   box-shadow: 0px 0px 10px 4px #e68900;
 }
 
+/* Ensuring Footer Stays at Bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full page height */
+  margin: 0;
+}
+
+.container {
+  flex-grow: 1; /* Pushes footer to the bottom */
+}
+
 /* Footer */
 footer {
-  text-align: center;
-  padding: 25px;
   background: #222;
-  color: #eaeaea;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  margin-top: auto; /* Ensures it sticks to the bottom */
+}
+
+footer p {
+  margin: 0;
   font-size: 16px;
-  border-top: 2px solid #444;
+  color: #ccc;
 }
 
 footer a {
   color: #f0a500;
-  text-decoration: underline;
+  text-decoration: none;
   transition: color 0.3s;
 }
-
 footer a:hover {
-  color: #d18d00;
+  color: #f0a500;
+  text-shadow: 0 0 10px #f0a500;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f0a500;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 24px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+.scroll-to-top:hover {
+  background: #e68900;
+  transform: scale(1.1);
+}
+.scroll-to-top:active {
+  transform: scale(0.9);
+}
+
+/* Scroll to Top Button Animation */
+@keyframes scrollToTop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.scroll-to-top {
+  animation: scrollToTop 1.5s ease-in-out infinite;
+}
+
+/* Scroll to Top Button Visibility */
+.scroll-to-top.hidden {
+  display: none;
+}
+
+/* Scroll to Top Button Visibility Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.scroll-to-top.visible {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Scroll to Top Button Hide Animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.scroll-to-top.hidden {
+  animation: fadeOut 0.5s ease-in-out;
+}
+/* Scroll to Top Button Show Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.scroll-to-top.visible {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* design on project filter */
+/* Filter Logo */
+
+.filter-logo {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 25px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.filter-logo:hover {
+  background-color: #0056b3; /* Highlight on hover */
+}
+
+/* Filter Menu */
+.filter-menu {
+  display: none; /* Initially hidden */
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  position: absolute; /* Dropdown menu positioning */
+  z-index: 10;
+}
+
+.filter-menu .filter-btn {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%; /* Full width of dropdown */
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.filter-menu .filter-btn:hover {
+  background-color: #f4f4f9; /* Light background on hover */
 }
 
 /* Animations */
