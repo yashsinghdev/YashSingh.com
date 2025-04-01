@@ -492,9 +492,11 @@ ol {
   top: 50%;
   transform: translateY(-50%);
   z-index: 0;
+  border-radius: 0%;
 }
 
 .hero-image img {
+  border-radius: 10%;
   max-width: 600px;
   filter: drop-shadow(0 20px 30px rgba(139, 92, 246, 0.3));
   animation: float 6s ease-in-out infinite;
@@ -1106,6 +1108,238 @@ ol {
 .faq-item.active .faq-answer {
   padding-bottom: var(--space-lg);
   max-height: 500px;
+}
+
+/* Premium CTA Section Styles */
+.cta-premium {
+  background: radial-gradient(circle at top right, #1a0933 0%, #0d041d 100%);
+  color: white;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.cta-text {
+  flex: 1;
+  z-index: 2;
+}
+
+.cta-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #fff 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.2;
+}
+
+.cta-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: #e2e8f0;
+  max-width: 500px;
+}
+
+.cta-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 3rem;
+}
+
+.cta-features li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cta-features i {
+  color: #8b5cf6;
+  font-size: 1.2rem;
+}
+
+.btn-premium {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.btn-premium::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-premium:hover::before {
+  left: 100%;
+}
+
+.cta-image-wrapper {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-image-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: perspective(1500px) rotateY(-15deg);
+  transition: transform 0.5s ease;
+}
+
+.cta-image-container:hover {
+  transform: perspective(1500px) rotateY(-5deg);
+}
+
+.premium-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(109, 40, 217, 0.3) 0%,
+    rgba(59, 7, 100, 0.5) 100%
+  );
+  z-index: 2;
+}
+
+.tech-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.1);
+  backdrop-filter: blur(5px);
+  z-index: 0;
+}
+
+.circle-1 {
+  width: 150px;
+  height: 150px;
+  top: -50px;
+  right: -50px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.circle-2 {
+  width: 80px;
+  height: 80px;
+  bottom: 20px;
+  left: -30px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.circle-3 {
+  width: 120px;
+  height: 120px;
+  bottom: -40px;
+  right: 30%;
+  background: rgba(139, 92, 246, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cta-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .cta-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-image-container {
+    max-width: 600px;
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .cta-image-container:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-premium {
+    padding: 4rem 0;
+  }
+
+  .cta-title {
+    font-size: 2.2rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .btn-premium {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
 }
 
 /* Footer */
