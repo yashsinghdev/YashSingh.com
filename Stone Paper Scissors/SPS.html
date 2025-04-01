@@ -3,55 +3,148 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stone Paper Scissors</title>
+    <title>Ultra Stone Paper Scissors | Premium Edition</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="SPS.css" />
   </head>
   <body>
-    <header>
-      Rock Paper Scissors
-      <nav>
-        <a href="../index.html">Portfolio</a>
-        <!-- <a href="../Project/project.html">Projects</a> -->
-        <a href="../Image/Resume.pdf">Resume</a>
+    <!-- Premium Header -->
+    <header class="header">
+      <a href="#" class="logo">
+        <i class="fas fa-hand-scissors"></i>
+        <span>Ultra RPS</span>
+      </a>
+      <nav class="nav-links">
+        <!-- <a href="#home" class="nav-link">Home</a>
+            <a href="#score" class="nav-link">Score</a>
+            <a href="#history" class="nav-link">History</a> -->
+        <a href="../index.html" class="portfolio-link" target="_blank"
+          >My Portfolio</a
+        >
       </nav>
     </header>
 
-    <div class="contaner">
-      <div class="choice" id="rock">
-        <img src="../Image/Stone.png" alt="Stone" />
+    <!-- Main Game Container -->
+    <main class="container" id="home">
+      <h1 class="game-title">Ultra Stone Paper Scissors</h1>
+      <p class="game-subtitle">
+        Experience the classic game with premium animations and effects.
+        Outsmart the computer in this ultimate battle of wits!
+      </p>
+
+      <!-- Score Board -->
+      <div class="score-board">
+        <div class="score">
+          <span class="score-label">Player</span>
+          <span class="score-value" id="player-score">0</span>
+        </div>
+        <span class="vs">VS</span>
+        <div class="score">
+          <span class="score-label">Computer</span>
+          <span class="score-value" id="computer-score">0</span>
+        </div>
       </div>
-      <div class="choice" id="paper">
-        <img src="../Image/Paper.png" alt="Paper" />
+
+      <!-- Game Area -->
+      <div class="game-area">
+        <div class="choices">
+          <div class="choice" data-choice="stone" title="Stone">
+            <i class="fas fa-hand-rock"></i>
+          </div>
+          <div class="choice" data-choice="paper" title="Paper">
+            <i class="fas fa-hand-paper"></i>
+          </div>
+          <div class="choice" data-choice="scissor" title="Scissors">
+            <i class="fas fa-hand-scissors"></i>
+          </div>
+        </div>
+
+        <!-- Result Display -->
+        <div class="result-display" id="result-display">
+          <div class="player-choice" id="player-choice">
+            <i class="fas fa-question"></i>
+          </div>
+          <div class="result-text" id="score">
+            <h2 class="result-message" id="result-message">Make your move!</h2>
+            <p class="result-description" id="result-description">
+              Choose stone, paper, or scissors to begin the game
+            </p>
+          </div>
+          <div class="computer-choice" id="computer-choice">
+            <i class="fas fa-question"></i>
+          </div>
+        </div>
+
+        <button class="action-btn" id="play-again-btn">Play Again</button>
+
+        <!-- Stats Section -->
+        <div class="stats">
+          <div class="stat-card wins">
+            <div class="stat-value" id="wins-count">0</div>
+            <div class="stat-label">Wins</div>
+          </div>
+          <div class="stat-card losses">
+            <div class="stat-value" id="losses-count">0</div>
+            <div class="stat-label">Losses</div>
+          </div>
+          <div class="stat-card draws">
+            <div class="stat-value" id="draws-count">0</div>
+            <div class="stat-label">Draws</div>
+          </div>
+          <div class="stat-card win-rate">
+            <div class="stat-value" id="win-rate">0%</div>
+            <div class="stat-label">Win Rate</div>
+          </div>
+        </div>
+
+        <!-- Game History -->
+        <div class="history-section" id="history">
+          <h2 class="history-title">
+            <i class="fas fa-history"></i>
+            <span>Game History</span>
+          </h2>
+          <ul class="history-list" id="history-list">
+            <!-- History items will be added here dynamically -->
+          </ul>
+        </div>
       </div>
-      <div class="choice" id="Scissor">
-        <img src="../Image/Scissor.png" alt="Scissor" />
+    </main>
+
+    <!-- Help Modal -->
+    <div class="modal" id="help-modal">
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <h2 class="modal-title">How to Play</h2>
+        <div class="modal-text">
+          <p>
+            <strong>Stone Paper Scissors</strong> is a classic hand game played
+            between two players (in this case, you and the computer).
+          </p>
+          <p><strong>Rules:</strong></p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem">
+            <li>Stone crushes scissors</li>
+            <li>Scissors cut paper</li>
+            <li>Paper covers stone</li>
+          </ul>
+          <p>If both players choose the same option, it's a draw.</p>
+          <p>
+            Click on one of the three options to make your move. The computer
+            will randomly select its move, and the winner will be determined
+            based on the rules above.
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="score">
-      <div>
-        <p id="user-score">0</p>
-        <b><p>YOU</p></b>
-      </div>
-      <div>
-        <p id="AI-score">0</p>
-        <b><p>AI</p></b>
-      </div>
-      <div>
-        <p id="Draw-score">0</p>
-        <b><p>Draw-score</p></b>
-      </div>
-      <div>
-        <p id="Total">0</p>
-        <b><p>TOTAL MATCH</p></b>
-      </div>
-      <div>
-        <p id="highest-score">0</p>
-        <b><p>HIGHEST SCORE</p></b>
-      </div>
-    </div>
-
-    <div class="msg" id="contaner">Let's Play the game</div>
+    <!-- Confetti elements will be added here dynamically -->
+    <div id="confetti-container"></div>
 
     <script src="SPS.js"></script>
   </body>
