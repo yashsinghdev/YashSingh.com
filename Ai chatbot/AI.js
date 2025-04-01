@@ -1,99 +1,280 @@
-// Get references to the elements
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+mobileMenuBtn.addEventListener("click", () => {
+  mobileMenuBtn.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenuBtn.classList.remove("active");
+    mobileMenu.classList.remove("active");
+  });
+});
+
+// FAQ Accordion
+document.querySelectorAll(".faq-question").forEach((question) => {
+  question.addEventListener("click", () => {
+    const item = question.parentNode;
+    item.classList.toggle("active");
+
+    // Close other open items
+    document.querySelectorAll(".faq-item").forEach((otherItem) => {
+      if (otherItem !== item && otherItem.classList.contains("active")) {
+        otherItem.classList.remove("active");
+      }
+    });
+  });
+});
+
+// Chat Functionality (simplified)
 const chatBox = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
-const sendButton = document.getElementById("send-button");
+const sendBtn = document.getElementById("send-btn");
 
-// Predefined question-answer pairs
-const predefinedResponses = {
-  hii: "Hi, how can I help you today?",
-  hi: "Hello! How can I help you today?",
-  hello: "Hi there! How can I help you today?",
-  "how are you?": "I'm just a bot, but I'm doing well, thank you!",
-  "what is your name?": "I'm an AI chatbot, you can call me Bot!",
-  bye: "Goodbye! Have a great day!",
-};
+function addMessage(content, isUser = false) {
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("message", isUser ? "user-message" : "ai-message");
+  messageDiv.style.animationDelay = `${chatBox.children.length * 0.1}s`;
 
-// Function to create and append a message to the chat box
-function appendMessage(content, sender) {
-  const message = document.createElement("div");
-  message.classList.add("message", sender);
-  message.innerText = content;
-  chatBox.appendChild(message);
+  const time = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  messageDiv.innerHTML = `
+    <div class="message-header">
+      <div class="message-avatar">${isUser ? "You" : "AI"}</div>
+      <div class="message-sender">${isUser ? "You" : "YASHNET AI"}</div>
+      <div class="message-time">${time}</div>
+    </div>
+    <div class="message-content">${content}</div>
+  `;
+
+  chatBox.appendChild(messageDiv);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Function to get AI response from Llama API
-async function getLlamaResponse(userMessage) {
-  try {
-    const response = await fetch("https://api.llama.com/v1/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer LA-81244c1dcb3a4f8b9b3186a12076509123715cc21a3441a897b2a239fb7a119f",
-      },
-      body: JSON.stringify({
-        prompt: userMessage,
-        max_tokens: 150,
-      }),
-    });
-
-    const data = await response.json();
-    return (
-      data.response || "I'm not sure about that. Can you ask something else?"
-    );
-  } catch (error) {
-    console.error("Error fetching Llama API response:", error);
-    return "Oops! Something went wrong. Please try again later.";
-  }
+function showTypingIndicator() {
+  const typingDiv = document.createElement("div");
+  typingDiv.classList.add("typing-indicator");
+  typingDiv.innerHTML = `
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+  `;
+  chatBox.appendChild(typingDiv);
+  chatBox.scrollTop = chatBox.scrollHeight;
+  return typingDiv;
 }
 
-// Function to simulate AI response
-async function getAIResponse(userMessage) {
-  const message = userMessage.toLowerCase();
+function getAIResponse(userMessage) {
+  // In a real implementation, this would call your AI API
+  // For demo purposes, we'll return some canned responses
 
-  if (predefinedResponses[message]) {
-    appendMessage(predefinedResponses[message], "ai-message");
-  } else {
-    const aiResponse = await getLlamaResponse(userMessage);
-    appendMessage(aiResponse, "ai-message");
-  }
+  const responses = [
+    'I understand your question about "' +
+      userMessage +
+      "\". Here's what I can tell you...",
+    "That's an interesting point. Based on my knowledge, I'd suggest...",
+    "I can definitely help with that. The key considerations are...",
+    "Thanks for asking! Here's a detailed response to your query...",
+    "Great question! Let me break this down for you...",
+  ];
+
+  return responses[Math.floor(Math.random() * responses.length)];
 }
 
-// Handle send button click
-sendButton.addEventListener("click", async () => {
+sendBtn.addEventListener("click", () => {
   const message = userInput.value.trim();
   if (message) {
-    appendMessage(message, "user-message");
+    addMessage(message, true);
     userInput.value = "";
-    await getAIResponse(message);
+
+    const typingIndicator = showTypingIndicator();
+
+    // Simulate AI thinking time
+    setTimeout(() => {
+      chatBox.removeChild(typingIndicator);
+      const response = getAIResponse(message);
+      addMessage(response);
+    }, 1500);
   }
 });
 
-// Handle enter key press
 userInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    sendButton.click();
+    sendBtn.click();
   }
 });
 
-// Scroll to the chat section when the "Start Chatting" button is clicked
-function scrollToSection(sectionId) {
-  const section = document.getElementById(sectionId);
-  section.scrollIntoView({ behavior: "smooth" });
-}
+// Suggestion buttons
+document.querySelectorAll(".suggestion-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    userInput.value = btn.textContent;
+    sendBtn.click();
+  });
+});
 
-// Apply fade-in effect on scroll
-const animatedSections = document.querySelectorAll(".animated-section");
+// Clear chat button
+document
+  .querySelector(".chat-action-btn:nth-child(1)")
+  .addEventListener("click", () => {
+    chatBox.innerHTML = "";
+    addMessage(
+      "Hello! I'm YASHNET AI, your advanced AI assistant. How can I help you today?"
+    );
+  });
 
-function onScroll() {
-  animatedSections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.8) {
-      section.classList.add("fade-in-up");
+// Particles.js Background
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        value_area: 800,
+      },
+    },
+    color: {
+      value: "#8b5cf6",
+    },
+    shape: {
+      type: "circle",
+      stroke: {
+        width: 0,
+        color: "#000000",
+      },
+      polygon: {
+        nb_sides: 5,
+      },
+    },
+    opacity: {
+      value: 0.3,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 1,
+        opacity_min: 0.1,
+        sync: false,
+      },
+    },
+    size: {
+      value: 3,
+      random: true,
+      anim: {
+        enable: false,
+        speed: 40,
+        size_min: 0.1,
+        sync: false,
+      },
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#7c3aed",
+      opacity: 0.2,
+      width: 1,
+    },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: "none",
+      random: true,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: {
+        enable: false,
+        rotateX: 600,
+        rotateY: 1200,
+      },
+    },
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: {
+        enable: true,
+        mode: "grab",
+      },
+      onclick: {
+        enable: true,
+        mode: "push",
+      },
+      resize: true,
+    },
+    modes: {
+      grab: {
+        distance: 140,
+        line_linked: {
+          opacity: 0.5,
+        },
+      },
+      bubble: {
+        distance: 400,
+        size: 40,
+        duration: 2,
+        opacity: 8,
+        speed: 3,
+      },
+      repulse: {
+        distance: 200,
+        duration: 0.4,
+      },
+      push: {
+        particles_nb: 4,
+      },
+      remove: {
+        particles_nb: 2,
+      },
+    },
+  },
+  retina_detect: true,
+});
+
+// Dark mode toggle
+const darkModeToggle = document.querySelector(".dark-mode-toggle");
+const darkModeIcon = darkModeToggle.querySelector("i");
+
+darkModeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  if (document.body.classList.contains("light-mode")) {
+    darkModeIcon.classList.remove("fa-moon");
+    darkModeIcon.classList.add("fa-sun");
+  } else {
+    darkModeIcon.classList.remove("fa-sun");
+    darkModeIcon.classList.add("fa-moon");
+  }
+});
+
+// Navbar scroll effect
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    document.querySelector(".navbar").classList.add("scrolled");
+  } else {
+    document.querySelector(".navbar").classList.remove("scrolled");
+  }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: "smooth",
+      });
     }
   });
-}
-
-window.addEventListener("scroll", onScroll);
-onScroll(); // Initial scroll effect
+});

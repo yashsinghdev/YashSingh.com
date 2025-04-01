@@ -3,69 +3,592 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Chat - Premium</title>
-    <link rel="stylesheet" href="AI.css" />
+    <title>YASHNET AI Pro Max | Premium AI Experience</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="AI.css" />
   </head>
   <body>
-    <!-- Navbar -->
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
     <nav class="navbar">
-      <div class="logo">YASHNET AI</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#chat">Chat</a></li>
-        <!-- <li><a href="../Project/project.html">Project</a></li> -->
+      <a href="#" class="logo">
+        <i class="fas fa-robot logo-icon"></i>
+        <span>YASHNET</span>
+      </a>
 
-        <!-- <li><a href="#pricing">Pricing</a></li> -->
-        <li><a href="../index.html">Portfolio</a></li>
-      </ul>
-      <a href="../Image/Resume.pdf"
-        ><button class="cta-button">Resume</button></a
-      >
-    </nav>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#chat" class="nav-link">Chat</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero animated-section">
-      <div class="hero-content">
-        <h1>Experience the Future of AI Chat</h1>
-        <p>Engage in seamless conversations with our advanced AI chatbot.</p>
-        <button class="cta-button" onclick="scrollToSection('chat')">
-          Start Chatting
+      <div class="nav-actions">
+        <a href="#" class="btn btn-outline">Sign In</a>
+        <button class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
-      <div class="hero-image">
-        <img src="../Image/Ai_logo.png" alt="AI Chat" />
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <div class="mobile-nav-links">
+        <a href="#features" class="mobile-nav-link">Features</a>
+        <a href="#chat" class="mobile-nav-link">Chat</a>
+        <a href="#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
+      </div>
+      <a href="#" class="btn btn-primary">Sign In</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Premium AI Experience with
+            <span class="text-gradient">YASHNET Pro Max</span>
+          </h1>
+          <p class="hero-subtitle">
+            The most advanced AI assistant powered by cutting-edge technology to
+            boost your productivity and creativity.
+          </p>
+          <div class="hero-actions">
+            <a href="#chat" class="btn btn-primary">Try Now</a>
+            <a href="#pricing" class="btn btn-outline">View Plans</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://via.placeholder.com/600x600/7c3aed/ffffff?text=AI+Assistant"
+            alt="AI Assistant Illustration"
+          />
+        </div>
+      </div>
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+      <div class="container">
+        <h2 class="section-title">Powerful Features</h2>
+        <p class="section-subtitle">
+          Experience the next generation of AI with our advanced features
+          designed to enhance your workflow.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="feature-title">Advanced NLP</h3>
+            <p class="feature-description">
+              Our AI understands context and nuance better than any other
+              system, making interactions feel natural.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn more <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="feature-title">Creative Generation</h3>
+            <p class="feature-description">
+              Generate original content, from articles to poetry, with just a
+              few prompts.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn more <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="feature-title">Code Assistance</h3>
+            <p class="feature-description">
+              Get help with coding in multiple languages, from debugging to full
+              project generation.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn more <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="feature-title">Data Analysis</h3>
+            <p class="feature-description">
+              Upload datasets and get instant insights, visualizations, and
+              reports.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn more <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <h3 class="feature-title">Multilingual</h3>
+            <p class="feature-description">
+              Fluent in over 50 languages for translation, writing, and
+              conversation.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn more <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-history"></i>
+            </div>
+            <h3 class="feature-title">Context Memory</h3>
+            <p class="feature-description">
+              Remembers conversation history for more coherent and personalized
+              interactions.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn more <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Chat Section -->
-    <section id="chat" class="chat-section animated-section">
-      <div class="chat-container">
-        <div class="chat-header">
-          <h2>Chat with YASHNET</h2>
+    <section id="chat" class="section">
+      <div class="container">
+        <div class="chat-container">
+          <div class="chat-header">
+            <h2>Chat with YASHNET AI</h2>
+            <p>Experience the power of our advanced AI assistant</p>
+          </div>
+
+          <div class="suggestions">
+            <button class="suggestion-btn">
+              How can I improve my productivity?
+            </button>
+            <button class="suggestion-btn">Write a professional email</button>
+            <button class="suggestion-btn">Explain quantum computing</button>
+            <button class="suggestion-btn">Help me debug this code</button>
+          </div>
+
+          <div class="chat-box" id="chat-box">
+            <!-- Messages will appear here -->
+            <div class="message ai-message" style="animation-delay: 0.1s">
+              <div class="message-header">
+                <div class="message-avatar">AI</div>
+                <div class="message-sender">YASHNET AI</div>
+                <div class="message-time">Just now</div>
+              </div>
+              <div class="message-content">
+                Hello! I'm YASHNET AI, your advanced AI assistant. How can I
+                help you today?
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-container">
+            <input
+              type="text"
+              class="chat-input"
+              placeholder="Ask me anything..."
+              id="user-input"
+            />
+            <button class="chat-send-btn" id="send-btn">
+              <i class="fas fa-paper-plane"></i> Send
+            </button>
+          </div>
+
+          <div class="chat-actions">
+            <button class="chat-action-btn">
+              <i class="fas fa-trash-alt"></i> Clear Chat
+            </button>
+            <button class="chat-action-btn">
+              <i class="fas fa-download"></i> Export Chat
+            </button>
+          </div>
         </div>
-        <div class="chat-box" id="chat-box">
-          <!-- Chat messages will appear here -->
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+      <div class="container">
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-value">10M+</div>
+            <div class="stat-label">Active Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Languages Supported</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Availability</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">99.9%</div>
+            <div class="stat-label">Uptime</div>
+          </div>
         </div>
-        <div class="chat-input">
-          <input
-            type="text"
-            id="user-input"
-            placeholder="Type your message..."
-          />
-          <button id="send-button">Send</button>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+      <div class="container">
+        <h2 class="section-title">What Users Say</h2>
+        <p class="section-subtitle">
+          Don't just take our word for it. Here's what our users have to say
+          about YASHNET AI.
+        </p>
+
+        <div class="testimonial-slider">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              "YASHNET AI has completely transformed how I work. The code
+              assistance feature alone has saved me hundreds of hours of
+              debugging."
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://via.placeholder.com/50x50"
+                alt="User"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4>Sarah Johnson</h4>
+                <p>Senior Developer, TechCorp</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              "As a content creator, the creative generation tools are a
+              game-changer. I can produce twice as much content in half the
+              time."
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://via.placeholder.com/50x50"
+                alt="User"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4>Michael Chen</h4>
+                <p>Content Strategist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              "The multilingual capabilities have helped me communicate with
+              international clients seamlessly. It's like having a personal
+              translator."
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://via.placeholder.com/50x50"
+                alt="User"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4>Elena Rodriguez</h4>
+                <p>Business Consultant</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              "I use YASHNET AI for data analysis daily. It's reduced the time I
+              spend on reports from days to hours with better insights."
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://via.placeholder.com/50x50"
+                alt="User"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4>David Kim</h4>
+                <p>Data Analyst</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2 class="section-title">Simple Pricing</h2>
+        <p class="section-subtitle">
+          Choose the plan that fits your needs. Upgrade, downgrade, or cancel
+          anytime.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="pricing-title">Starter</h3>
+            <div class="pricing-price">$9<span>/month</span></div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> 100 requests/day
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Basic AI capabilities
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Email support
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> 5 languages
+              </div>
+            </div>
+            <button class="btn btn-outline">Get Started</button>
+          </div>
+
+          <div class="pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <h3 class="pricing-title">Pro</h3>
+            <div class="pricing-price">$29<span>/month</span></div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> 500 requests/day
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Advanced AI capabilities
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Priority support
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> 20 languages
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Code assistance
+              </div>
+            </div>
+            <button class="btn btn-primary">Get Started</button>
+          </div>
+
+          <div class="pricing-card">
+            <h3 class="pricing-title">Enterprise</h3>
+            <div class="pricing-price">$99<span>/month</span></div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Unlimited requests
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Premium AI capabilities
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> 24/7 dedicated support
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> All languages
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> API access
+              </div>
+              <div class="pricing-feature">
+                <i class="fas fa-check"></i> Team collaboration
+              </div>
+            </div>
+            <button class="btn btn-outline">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Find answers to common questions about YASHNET AI.
+        </p>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              What makes YASHNET AI different from other AI assistants?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              YASHNET AI combines state-of-the-art natural language processing
+              with specialized knowledge across multiple domains. Our AI
+              understands context better, remembers conversation history, and
+              offers more accurate and creative responses than standard AI
+              assistants.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              Is my data secure with YASHNET AI?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Absolutely. We employ enterprise-grade security measures including
+              end-to-end encryption for all conversations. You own your data,
+              and we never use your conversations to train our models without
+              explicit permission.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              Can I use YASHNET AI for commercial purposes?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Yes! Our Pro and Enterprise plans include commercial usage rights.
+              You can use generated content commercially, though we recommend
+              reviewing it for accuracy and originality as you would with any
+              tool.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              How does the free trial work?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Our free trial gives you access to all Pro features for 7 days
+              with a limit of 50 requests per day. No credit card is required to
+              start the trial, and you can upgrade at any time during or after
+              the trial period.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              What languages does YASHNET AI support?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              YASHNET AI supports over 50 languages fluently, including English,
+              Spanish, French, German, Chinese, Japanese, and many more. The
+              Starter plan includes 5 languages, while higher plans include all
+              supported languages.
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-      <p>&copy; 2023 AI Chat. All rights reserved.</p>
+    <footer class="section">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <i class="fas fa-robot"></i>
+              <span>YASHNET</span>
+            </div>
+            <p class="footer-description">
+              The most advanced AI assistant for professionals, creators, and
+              developers.
+            </p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#chat">Demo</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Integrations</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Tutorials</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <h3>Stay Updated</h3>
+            <p class="footer-description">
+              Subscribe to our newsletter for product updates and AI insights.
+            </p>
+            <input type="email" placeholder="Your email address" />
+            <button class="btn btn-primary">Subscribe</button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2023 YASHNET AI. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="AI.js"></script>
   </body>
 </html>
