@@ -3,43 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yash Singh Portfolio</title>
+    <title>Yash Singh | Full Stack Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="portfolio.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h3 class="logo">Yash Singh</h3>
-        <nav>
-          <a href="#home">Home</a>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+      <div class="loader-logo">
+        <img src="Image/logo.jpg" alt="Yash Singh Logo" />
+      </div>
+      <div class="loader-bar">
+        <div class="loader-progress" id="loader-progress"></div>
+      </div>
+    </div>
 
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <a href="#home" class="logo">Yash Singh</a>
 
-          <a href="Image/Resume.pdf">Resume</a>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="nav-menu" id="nav-menu">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="Image/Resume.pdf" class="resume-btn">Resume</a>
         </nav>
       </div>
     </header>
 
-    <main>
-      <!-- Hero Section -->
-      <section id="home" class="hero scroll-animate">
+    <!-- Hero Section -->
+    <section id="home" class="hero scroll-animate">
+      <div class="container">
         <div class="hero-content">
-          <h1>Hi, I am Yash Singh</h1>
-          <div class="text" id="typewriter"></div>
-
-          <p id="slogan">"Code the Front, Power the Back, Rule the Stack!"</p>
-          <!-- Social Media Icons -->
+          <h1 class="hero-title">Hi, I'm <span>Yash Singh</span></h1>
+          <div class="typewriter" id="typewriter"></div>
+          <p class="slogan">
+            "Code the Front, Power the Back, Rule the Stack!"
+          </p>
           <div class="social-icons">
             <a
               href="https://www.instagram.com/yash_rajput.18"
@@ -53,7 +70,7 @@
               target="_blank"
               class="social-link"
             >
-              <i class="fab fa-linkedin"></i>
+              <i class="fab fa-linkedin-in"></i>
             </a>
             <a
               href="https://github.com/yashsinghdev"
@@ -63,159 +80,418 @@
               <i class="fab fa-github"></i>
             </a>
             <a href="mailto:yashsinghfire704@gmail.com" class="social-link">
-              <i class="fas fa-envelope"></i
-            ></a>
+              <i class="fas fa-envelope"></i>
+            </a>
           </div>
-
-          <!-- <a href="#contact" class="btn">Contact Me</a> -->
+          <a href="#projects" class="hero-btn">View My Work</a>
         </div>
         <div class="hero-image">
-          <img src="Image/logo.jpg" alt="Logo" />
+          <img
+            src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Yash Singh"
+          />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- About Section -->
+    <!-- About Section -->
+    <section id="about" class="about scroll-animate">
+      <div class="container">
+        <h2 class="section-title">Who Am I?</h2>
+        <div class="about-content">
+          <p class="about-text">
+            A passionate problem-solver with a strong foundation in programming
+            and a creative mindset. I love crafting digital experiences that
+            blend functionality with aesthetics.
+          </p>
+          <ul class="about-list">
+            <li>🚀 Full Stack Developer – Building seamless web solutions.</li>
+            <li>🎯 Strong Communication – Turning ideas into action.</li>
+            <li>
+              💡 Creative Thinker – Finding innovative solutions to complex
+              problems.
+            </li>
+            <li>📈 Continuous Learner – Always expanding my skill set.</li>
+          </ul>
+          <p class="about-text">
+            With expertise in both front-end and back-end technologies, I create
+            robust and scalable applications that deliver exceptional user
+            experiences. My journey in tech is driven by curiosity and a passion
+            for creating impactful solutions.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section id="about" class="about scroll-animate">
-        <h2>Who Am I ?</h2>
-        <p>
-          A passionate problem-solver with a strong foundation in programming
-          and a creative mindset. I love crafting digital experiences that blend
-          functionality with aesthetics.
-        </p>
-        <ul>
-          <li>🚀 Full Stack Developer – Building seamless web solutions.</li>
-          <li>🎯 Strong Communication – Turning ideas into action.</li>
-        </ul>
-        <p>
-          Always learning, always evolving. Let’s build something amazing
-          together! 💡✨
-        </p>
-      </section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="projects scroll-animate">
-        <h2>Skills</h2>
-        <!-- Programming Skills -->
-        <div class="skills-category scroll-animate">
-          <h3 id="program">Programming Skills</h3>
+    <!-- Skills Section -->
+    <section id="skills" class="skills scroll-animate">
+      <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-category">
+          <h3>Programming Languages</h3>
           <div class="skills-grid">
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/html.png" alt="HTML" />
-              <p>HTML: <span>98%</span></p>
+            <div class="skill">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  alt="HTML"
+                />
+              </div>
+              <div class="skill-name">HTML</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 98%"></div>
+              </div>
+              <div class="skill-percent">98%</div>
             </div>
-
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/css.png" alt="CSS" />
-              <p>CSS: <span>80%</span></p>
+            <div class="skill">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  alt="CSS"
+                />
+              </div>
+              <div class="skill-name">CSS</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+              <div class="skill-percent">80%</div>
             </div>
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/js-file.png" alt="JavaScript" />
-              <p>JavaScript: <span>60%</span></p>
+            <div class="skill">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                />
+              </div>
+              <div class="skill-name">JavaScript</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 60%"></div>
+              </div>
+              <div class="skill-percent">60%</div>
             </div>
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/letter-c.png" alt="C" />
-              <p>C: <span>90%</span></p>
+            <div class="skill">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
+                  alt="C"
+                />
+              </div>
+              <div class="skill-name">C</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <div class="skill-percent">90%</div>
             </div>
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/c-.png" alt="C++" />
-              <p>C++: <span>99%</span></p>
+            <div class="skill">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                  alt="C++"
+                />
+              </div>
+              <div class="skill-name">C++</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 99%"></div>
+              </div>
+              <div class="skill-percent">99%</div>
             </div>
-            <div id="btn" class="skill scroll-animate">
-              <img src="Image/Python.png" alt="Python" />
-              <p>Python: <span>95%</span></p>
+            <div class="skill">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  alt="Python"
+                />
+              </div>
+              <div class="skill-name">Python</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+              <div class="skill-percent">95%</div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- Projects -->
+      </div>
+    </section>
 
-      <section id="projects" class="projects scroll-animate">
-        <h2>MY PROJECTS</h2>
-        <!-- Filter Options -->
+    <!-- Projects Section -->
+    <section id="projects" class="projects scroll-animate">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
         <div class="filter-container">
-          <div class="filter-logo" onclick="toggleMenu()">🔍 Filter</div>
-          <div class="filter-menu" id="filterMenu">
-            <button class="filter-btn" onclick="filterProjects('all')">
-              All
-            </button>
-            <button class="filter-btn" onclick="filterProjects('ai')">
-              AI
-            </button>
-            <button class="filter-btn" onclick="filterProjects('game')">
-              Games
-            </button>
-            <button class="filter-btn" onclick="filterProjects('ui')">
-              UI
-            </button>
-          </div>
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+          <button class="filter-btn" data-filter="game">Games</button>
+          <button class="filter-btn" data-filter="ui">UI</button>
         </div>
-
         <div class="projects-container">
-          <div class="project-card" data-category="other">
-            <h3 class="project-title">NO use</h3>
-            <p class="project-desc">there is problem in these card</p>
-            <a href="#" class="btn" target="_blank">View Project</a>
-          </div>
-
           <div class="project-card" data-category="ai">
-            <h3 class="project-title">AI Chat Bot</h3>
-            <p class="project-desc">An AI-powered chatbot for Fun.</p>
-            <a href="Ai chatbot/AI.html" class="btn" target="_blank"
-              >View Project</a
-            >
+            <div class="project-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
+                alt="AI Chat Bot"
+                class="project-image"
+              />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">AI Chat Bot</h3>
+              <p class="project-desc">
+                An AI-powered chatbot for fun interactions and automated
+                responses using natural language processing.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">AI</span>
+                <span class="tech-tag">NLP</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="Ai chatbot/AI.html"
+                  class="project-link live"
+                  target="_blank"
+                >
+                  <i class="fas fa-eye"></i> Live Demo
+                </a>
+                <a href="#" class="project-link code" target="_blank">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
           </div>
-
           <div class="project-card" data-category="game">
-            <h3 class="project-title">Stone Paper Scissors Game</h3>
-            <p class="project-desc">
-              An engaging and interactive game to test your luck and strategy.
-            </p>
-            <a href="Stone Paper Scissors/SPS.html" class="btn" target="_blank"
-              >View Project</a
-            >
+            <div class="project-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Stone Paper Scissors"
+                class="project-image"
+              />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Stone Paper Scissors Game</h3>
+              <p class="project-desc">
+                An engaging and interactive game to test your luck and strategy
+                against the computer.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="Stone Paper Scissors/SPS.html"
+                  class="project-link live"
+                  target="_blank"
+                >
+                  <i class="fas fa-eye"></i> Live Demo
+                </a>
+                <a href="#" class="project-link code" target="_blank">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
           </div>
-
           <div class="project-card" data-category="ui">
-            <h3 class="project-title">Food Web UI</h3>
-            <p class="project-desc">Basic Food Order web Page UI</p>
-            <a href="FoodProject/Food.html" class="btn" target="_blank"
-              >View Project</a
-            >
+            <div class="project-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Food Web UI"
+                class="project-image"
+              />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Food Web UI</h3>
+              <p class="project-desc">
+                A beautifully designed food ordering web interface with smooth
+                animations and responsive layout.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="/FoodProject/Food.html"
+                  class="project-link live"
+                  target="_blank"
+                >
+                  <i class="fas fa-eye"></i> Live Demo
+                </a>
+                <a href="#" class="project-link code" target="_blank">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Footer -->
-      <footer id="contact" class="footer scroll-animate">
-        <div class="container">
-          <p>&copy; 2025 Yash Singh. All rights reserved.</p>
-          <div class="contact-details">
-            <h3>Contact Details</h3>
-            <p>
-              <i class="fa-solid fa-envelope"></i> Email:
-              <a href="mailto:yashsinghfire704@gmail.com"
-                >yashsinghfire704@gmail.com</a
+    <!-- Contact Section -->
+    <section id="contact" class="contact scroll-animate">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Email</h3>
+                <a href="mailto:yashsinghfire704@gmail.com"
+                  >yashsinghfire704@gmail.com</a
+                >
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Phone</h3>
+                <p>+91 88 1808 9674</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Location</h3>
+                <p>India</p>
+              </div>
+            </div>
+            <div class="social-icons">
+              <a
+                href="https://www.instagram.com/yash_rajput.18"
+                target="_blank"
+                class="social-link"
               >
-            </p>
-            <p>
-              <i class="fa-brands fa-linkedin"></i> LinkedIn:
-              <a href="https://www.linkedin.com/in/yash-singh-1824a8310/"
-                >linkedin.com/in/yashsingh</a
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/yash-singh-1824a8310/"
+                target="_blank"
+                class="social-link"
               >
-            </p>
-            <p>
-              <i class="fa-brands fa-instagram"></i> Instagram:
-              <a href="https://www.instagram.com/yash_rajput.18/"
-                >instagram.com/yash_rajput.18</a
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://github.com/yashsinghdev"
+                target="_blank"
+                class="social-link"
               >
-            </p>
-            <p><i class="fa-solid fa-phone"></i> Phone: +91 88 1808 9674</p>
-            <p><i class="fa-solid fa-location-dot"></i> Location: India</p>
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder=" "
+                  required
+                />
+                <label for="name" class="form-label">Your Name</label>
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder=" "
+                  required
+                />
+                <label for="email" class="form-label">Your Email</label>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subject"
+                  placeholder=" "
+                />
+                <label for="subject" class="form-label">Subject</label>
+              </div>
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  id="message"
+                  placeholder=" "
+                  required
+                ></textarea>
+                <label for="message" class="form-label">Your Message</label>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
           </div>
         </div>
-      </footer>
-    </main>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer scroll-animate">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">Yash Singh</div>
+          <div class="footer-links">
+            <a href="#home" class="footer-link">Home</a>
+            <a href="#about" class="footer-link">About</a>
+            <a href="#skills" class="footer-link">Skills</a>
+            <a href="#projects" class="footer-link">Projects</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a
+              href="https://www.instagram.com/yash_rajput.18"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/yash-singh-1824a8310/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/yashsinghdev"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <p class="copyright">&copy; 2025 Yash Singh. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script src="portfolio.js"></script>
   </body>
 </html>

@@ -1,71 +1,45 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollElements = document.querySelectorAll(".scroll-animate");
+// ========== LOADER ANIMATION ==========
+const loader = document.getElementById("loader");
+const loaderProgress = document.getElementById("loader-progress");
 
-  // Intersection Observer for scroll animation (unchanged)
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
+// Simulate loading progress
+let progress = 0;
+const interval = setInterval(() => {
+  progress += Math.random() * 10;
+  if (progress >= 100) {
+    progress = 100;
+    clearInterval(interval);
+    setTimeout(() => {
+      loader.classList.add("hidden");
+    }, 500);
+  }
+  loaderProgress.style.width = `${progress}%`;
+}, 100);
 
-  scrollElements.forEach((el) => observer.observe(el));
-
-  // Smooth scrolling for internal navigation links (except "Projects" link)
-  document.querySelectorAll("header nav a").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const targetHref = this.getAttribute("href");
-
-      // If the link is to the Projects page, do NOT prevent default behavior (normal navigation)
-      if (targetHref === "Projects/Project2.html") {
-        return; // Allow normal navigation to the Projects page
-      }
-
-      // For other links, apply smooth scrolling
-      if (targetHref.startsWith("#")) {
-        // Only smooth scroll for internal anchors
-        e.preventDefault(); // Prevent default behavior for smooth scrolling
-        const targetId = this.getAttribute("href");
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    });
-  });
-
-  // Button Scroll (unchanged)
-  document.querySelector(".btn").addEventListener("click", (e) => {
-    e.preventDefault();
-    document.querySelector("footer").scrollIntoView({ behavior: "smooth" });
-  });
-});
+// ========== TYPEWRITER EFFECT ==========
 const texts = [
   "Full Stack Developer.",
   "Front End Developer.",
   "Back End Developer.",
+  "Problem Solver.",
+  "Creative Thinker.",
 ];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-const speed = 100; // Typing speed
-const delayBetween = 1000; // Delay after full word
+const speed = 100;
+const delayBetween = 1000;
 
 function typeEffect() {
   const typewriter = document.getElementById("typewriter");
   const currentText = texts[textIndex];
-  let displayedText = currentText.substring(0, charIndex);
-  typewriter.textContent = displayedText;
 
   if (!isDeleting && charIndex < currentText.length) {
+    typewriter.textContent = currentText.substring(0, charIndex + 1);
     charIndex++;
     setTimeout(typeEffect, speed);
   } else if (isDeleting && charIndex > 0) {
+    typewriter.textContent = currentText.substring(0, charIndex - 1);
     charIndex--;
     setTimeout(typeEffect, speed / 2);
   } else {
@@ -73,118 +47,191 @@ function typeEffect() {
     if (!isDeleting) {
       textIndex = (textIndex + 1) % texts.length;
     }
-    setTimeout(typeEffect, delayBetween);
+    setTimeout(typeEffect, isDeleting ? delayBetween : speed);
   }
 }
 
-// Start typing effect after page loads
-document.addEventListener("DOMContentLoaded", typeEffect);
+// ========== SCROLL ANIMATIONS ==========
+const scrollElements = document.querySelectorAll(".scroll-animate");
 
-// projects
-// add filter option in projects.html
-const filterButtons = document.querySelectorAll(".filter-button");
-const projectCards = document.querySelectorAll(".project-card");
-const allProjects = Array.from(projectCards);
-const allProjectsContainer = document.querySelector(".all-projects");
+const elementInView = (el, dividend = 1) => {
+  const elementTop = el.getBoundingClientRect().top;
+  return (
+    elementTop <=
+    (window.innerHeight || document.documentElement.clientHeight) / dividend
+  );
+};
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const filterValue = button.getAttribute("data-filter");
+const displayScrollElement = (element) => {
+  element.classList.add("visible");
+};
 
-    // Remove active class from all buttons and add to the clicked button
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
+const handleScrollAnimation = () => {
+  scrollElements.forEach((el) => {
+    if (elementInView(el, 1.25)) {
+      displayScrollElement(el);
+    }
+  });
+};
 
-    // Show all projects if "all" is clicked
-    if (filterValue === "all") {
-      allProjects.forEach((card) => (card.style.display = "block"));
-    } else {
-      allProjects.forEach((card) => {
-        if (card.classList.contains(filterValue)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
+// ========== HEADER SCROLL EFFECT ==========
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+
+  // Back to top button
+  if (window.scrollY > 300) {
+    document.getElementById("backToTop").classList.add("active");
+  } else {
+    document.getElementById("backToTop").classList.remove("active");
+  }
+});
+
+// ========== SMOOTH SCROLLING ==========
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: "smooth",
       });
     }
   });
 });
-// Show all projects by default
-allProjects.forEach((card) => (card.style.display = "block"));
-// Add event listener to each project card
-projectCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const projectName = card.querySelector("h3").textContent;
-    const projectDescription = card.querySelector("p").textContent;
-    const projectImage = card.querySelector("img").src;
 
-    // Create a modal to display the project details
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
+// ========== MOBILE MENU TOGGLE ==========
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
 
-    // Create modal content
-    const modalContent = document.createElement("div");
-    modalContent.classList.add("modal-content");
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
 
-    // Add close button
-    const closeButton = document.createElement("span");
-    closeButton.classList.add("close");
-    closeButton.innerHTML = "&times;";
-    closeButton.onclick = () => {
-      modal.style.display = "none";
-      document.body.removeChild(modal);
-    };
-
-    // Add project details to modal
-    const title = document.createElement("h2");
-    title.textContent = projectName;
-
-    const description = document.createElement("p");
-    description.textContent = projectDescription;
-
-    const image = document.createElement("img");
-    image.src = projectImage;
-    image.alt = projectName;
-    image.classList.add("modal-image");
-    image.style.width = "100%"; // Set width to 100% of modal content
-    image.style.height = "auto"; // Maintain aspect ratio
-    image.style.maxHeight = "400px"; // Limit height to 400px
-    image.style.objectFit = "contain"; // Ensure the image fits well within the modal
-    image.style.marginBottom = "20px"; // Add margin below the image
-    image.style.borderRadius = "10px"; // Add border radius for aesthetics
-
-    // Append elements to modal content
-    modalContent.appendChild(closeButton);
-    modalContent.appendChild(title);
-    modalContent.appendChild(image);
-    modalContent.appendChild(description);
-
-    // Append modal content to modal
-    modal.appendChild(modalContent);
-
-    // Append modal to body
-    document.body.appendChild(modal);
-
-    // Display the modal
-    modal.style.display = "block";
+// Close menu when clicking on a link
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
   });
 });
-//tongle of filter buttion
-function toggleMenu() {
-  const menu = document.getElementById("filterMenu");
-  if (menu.style.display === "block") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "block";
-  }
-}
-function filterProjects(category) {
-  const projects = document.querySelectorAll(".project-card");
-  projects.forEach((project) => {
-    if (category === "all" || project.dataset.category === category) {
-      project.style.display = "block";
-    } else {
-      project.style.display = "none";
+
+// ========== PROJECT FILTERING ==========
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // Remove active class from all buttons
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    // Add active class to clicked button
+    button.classList.add("active");
+
+    const filterValue = button.getAttribute("data-filter");
+
+    projectCards.forEach((card) => {
+      if (
+        filterValue === "all" ||
+        card.getAttribute("data-category") === filterValue
+      ) {
+        card.style.display = "block";
+        setTimeout(() => {
+          card.classList.add("visible");
+        }, 50);
+      } else {
+        card.style.display = "none";
+        card.classList.remove("visible");
+      }
+    });
+  });
+});
+
+// ========== FORM SUBMISSION ==========
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Get form values
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  // Here you would typically send the form data to a server
+  console.log({ name, email, subject, message });
+
+  // Show success message
+  alert("Thank you for your message! I will get back to you soon.");
+  contactForm.reset();
+});
+
+// ========== SKILLS ANIMATION ==========
+const skills = document.querySelectorAll(".skill");
+
+function animateSkills() {
+  skills.forEach((skill) => {
+    if (elementInView(skill, 1.5)) {
+      const progressBar = skill.querySelector(".skill-progress");
+      const percent = skill.querySelector(".skill-percent").textContent;
+      progressBar.style.width = percent;
     }
   });
 }
+
+// ========== INITIALIZE ==========
+document.addEventListener("DOMContentLoaded", () => {
+  // Start typewriter effect
+  setTimeout(typeEffect, 1000);
+
+  // Initial scroll animation check
+  handleScrollAnimation();
+  animateSkills();
+
+  // Add active class to current section in nav
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+
+    // Animate skills when in view
+    animateSkills();
+  });
+});
+
+window.addEventListener("scroll", () => {
+  handleScrollAnimation();
+  animateSkills();
+});
+
+// ========== PARTICLE EFFECT ==========
+// This would be a more complex implementation using Canvas or a library
+// For simplicity, we'll just add a placeholder comment here
+// In a production site, you might use something like particles.js
