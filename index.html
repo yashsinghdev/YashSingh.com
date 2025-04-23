@@ -12,18 +12,53 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="portfolio.css" />
   </head>
   <body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <input type="checkbox" id="theme-switch" class="theme-switch" />
+      <label for="theme-switch" class="theme-label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <span class="theme-ball"></span>
+      </label>
+    </div>
+
     <!-- Loader -->
     <div class="loader" id="loader">
-      <div class="loader-logo">
-        <img src="Image/logo.jpg" alt="Yash Singh Logo" />
-      </div>
-      <div class="loader-bar">
-        <div class="loader-progress" id="loader-progress"></div>
+      <div class="loader-content">
+        <div class="loader-logo">
+          <img src="../Image/logo.jpg" alt="Yash Singh Logo" />
+        </div>
+        <div class="loader-text">
+          <span class="loader-char">Y</span>
+          <span class="loader-char">A</span>
+          <span class="loader-char">S</span>
+          <span class="loader-char">H</span>
+          <span class="loader-char"></span>
+          <span class="loader-char">S</span>
+          <span class="loader-char">I</span>
+          <span class="loader-char">N</span>
+          <span class="loader-char">G</span>
+          <span class="loader-char">H</span>
+        </div>
+        <div class="loader-bar">
+          <div class="loader-progress" id="loader-progress"></div>
+        </div>
       </div>
     </div>
+
+    <!-- Floating Particles -->
+    <canvas id="particles-js" class="particles-js"></canvas>
+
+    <!-- Cursor Effects -->
+    <div class="cursor cursor-outer"></div>
+    <div class="cursor cursor-inner"></div>
 
     <!-- Header -->
     <header id="header">
@@ -38,12 +73,42 @@
         </div>
 
         <nav class="nav-menu" id="nav-menu">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <a href="Image/Resume.pdf" class="resume-btn">Resume</a>
+          <a href="#home" class="nav-link active">
+            <span class="nav-icon"><i class="fas fa-home"></i></span>
+            <span class="nav-text">Home</span>
+          </a>
+          <a href="#about" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-user"></i></span>
+            <span class="nav-text">About</span>
+          </a>
+          <a href="#services" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-cog"></i></span>
+            <span class="nav-text">Services</span>
+          </a>
+          <a href="#skills" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+            <span class="nav-text">Skills</span>
+          </a>
+          <a href="#projects" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+            <span class="nav-text">Projects</span>
+          </a>
+          <a href="#testimonials" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-quote-left"></i></span>
+            <span class="nav-text">Testimonials</span>
+          </a>
+          <a href="#blog" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-blog"></i></span>
+            <span class="nav-text">Blog</span>
+          </a>
+          <a href="#contact" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-envelope"></i></span>
+            <span class="nav-text">Contact</span>
+          </a>
+          <a href="Image/Resume.pdf" class="resume-btn">
+            <span class="btn-icon"><i class="fas fa-file-alt"></i></span>
+            <span class="btn-text">Resume</span>
+          </a>
         </nav>
       </div>
     </header>
@@ -52,16 +117,30 @@
     <section id="home" class="hero scroll-animate">
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title">Hi, I'm <span>Yash Singh</span></h1>
-          <div class="typewriter" id="typewriter"></div>
-          <p class="slogan">
-            "Code the Front, Power the Back, Rule the Stack!"
-          </p>
+          <div class="hero-text">
+            <h4 class="hero-subtitle">Hello, I'm</h4>
+            <h1 class="hero-title">Yash <span>Singh</span></h1>
+            <div class="typewriter" id="typewriter"></div>
+            <p class="slogan">
+              "Code the Front, Power the Back, Rule the Stack!"
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="hero-btn btn-primary">
+                <span>View My Work</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="#contact" class="hero-btn btn-secondary">
+                <span>Hire Me</span>
+                <i class="fas fa-paper-plane"></i>
+              </a>
+            </div>
+          </div>
           <div class="social-icons">
             <a
               href="https://www.instagram.com/yash_rajput.18"
               target="_blank"
               class="social-link"
+              data-tooltip="Instagram"
             >
               <i class="fab fa-instagram"></i>
             </a>
@@ -69,6 +148,7 @@
               href="https://www.linkedin.com/in/yash-singh-1824a8310/"
               target="_blank"
               class="social-link"
+              data-tooltip="LinkedIn"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
@@ -76,20 +156,55 @@
               href="https://github.com/yashsinghdev"
               target="_blank"
               class="social-link"
+              data-tooltip="GitHub"
             >
               <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:yashsinghfire704@gmail.com" class="social-link">
+            <a
+              href="mailto:yashsinghfire704@gmail.com"
+              class="social-link"
+              data-tooltip="Email"
+            >
               <i class="fas fa-envelope"></i>
             </a>
           </div>
-          <a href="#projects" class="hero-btn">View My Work</a>
         </div>
         <div class="hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-            alt="Yash Singh"
-          />
+          <div class="image-wrapper">
+            <img src="../Image/logo.jpg" alt="Yash Singh" class="main-image" />
+            <div class="image-overlay"></div>
+            <div class="tech-badge" style="--i: 1">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="React"
+              />
+            </div>
+            <div class="tech-badge" style="--i: 2">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                alt="Node.js"
+              />
+            </div>
+            <div class="tech-badge" style="--i: 3">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="Python"
+              />
+            </div>
+            <div class="tech-badge" style="--i: 4">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                alt="C++"
+              />
+            </div>
+          </div>
+          <div class="hero-shape"></div>
+        </div>
+      </div>
+      <div class="scroll-down">
+        <span>Scroll Down</span>
+        <div class="mouse">
+          <div class="wheel"></div>
         </div>
       </div>
     </section>
@@ -97,40 +212,209 @@
     <!-- About Section -->
     <section id="about" class="about scroll-animate">
       <div class="container">
-        <h2 class="section-title">Who Am I?</h2>
-        <div class="about-content">
-          <p class="about-text">
-            A passionate problem-solver with a strong foundation in programming
-            and a creative mindset. I love crafting digital experiences that
-            blend functionality with aesthetics.
-          </p>
-          <ul class="about-list">
-            <li>🚀 Full Stack Developer – Building seamless web solutions.</li>
-            <li>🎯 Strong Communication – Turning ideas into action.</li>
-            <li>
-              💡 Creative Thinker – Finding innovative solutions to complex
+        <div class="section-header">
+          <h4 class="section-subtitle">Get To Know More</h4>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="about-container">
+          <div class="about-image">
+            <div class="image-frame">
+              <img src="../Image/logo.jpg" alt="About Yash Singh" />
+              <div class="frame-decoration"></div>
+              <div class="experience-badge">
+                <span class="years">2+</span>
+                <span class="text">Years Experience</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-content">
+            <div class="about-tabs">
+              <button class="tab-btn active" data-tab="personal">
+                Personal
+              </button>
+              <button class="tab-btn" data-tab="education">Education</button>
+              <button class="tab-btn" data-tab="experience">Experience</button>
+            </div>
+            <div class="tab-content active" id="personal-tab">
+              <p>
+                A passionate problem-solver with a strong foundation in
+                programming and a creative mindset. I love crafting digital
+                experiences that blend functionality with aesthetics.
+              </p>
+              <div class="about-details">
+                <div class="detail-item">
+                  <span class="detail-label">Name:</span>
+                  <span class="detail-value">Yash Singh</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Email:</span>
+                  <span class="detail-value">yashsinghfire704@gmail.com</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">From:</span>
+                  <span class="detail-value">India</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Availability:</span>
+                  <span class="detail-value">Open to Work</span>
+                </div>
+              </div>
+              <a href="#contact" class="about-btn">Contact Me</a>
+            </div>
+            <div class="tab-content" id="education-tab">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">2020 - Present</div>
+                  <div class="timeline-content">
+                    <h3>Bachelor's in Computer Science</h3>
+                    <p>University Name</p>
+                    <p>Specialization in Full Stack Development</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">2018 - 2020</div>
+                  <div class="timeline-content">
+                    <h3>Higher Secondary Education</h3>
+                    <p>School Name</p>
+                    <p>Major in Computer Science</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="experience-tab">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">2022 - Present</div>
+                  <div class="timeline-content">
+                    <h3>Full Stack Developer</h3>
+                    <p>Company Name</p>
+                    <p>
+                      Developed and maintained web applications using modern
+                      technologies.
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">2021 - 2022</div>
+                  <div class="timeline-content">
+                    <h3>Frontend Developer</h3>
+                    <p>Company Name</p>
+                    <p>Created responsive and interactive user interfaces.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services scroll-animate">
+      <div class="container">
+        <div class="section-header">
+          <h4 class="section-subtitle">What I Offer</h4>
+          <h2 class="section-title">My Services</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">Web Development</h3>
+            <p class="service-description">
+              Custom website development with responsive design and optimal
+              performance.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Responsive Design</span>
+              <span><i class="fas fa-check"></i> SEO Friendly</span>
+              <span><i class="fas fa-check"></i> Performance Optimized</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">App Development</h3>
+            <p class="service-description">
+              Building cross-platform mobile applications with modern
+              frameworks.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Cross-Platform</span>
+              <span><i class="fas fa-check"></i> Native Performance</span>
+              <span><i class="fas fa-check"></i> Offline Support</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">UI/UX Design</h3>
+            <p class="service-description">
+              Creating intuitive user interfaces with exceptional user
+              experience.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> User Research</span>
+              <span><i class="fas fa-check"></i> Prototyping</span>
+              <span><i class="fas fa-check"></i> Usability Testing</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-server"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">Backend Development</h3>
+            <p class="service-description">
+              Robust backend solutions with scalable architecture and secure
+              APIs.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> RESTful APIs</span>
+              <span><i class="fas fa-check"></i> Database Design</span>
+              <span><i class="fas fa-check"></i> Cloud Integration</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-brain"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">AI Solutions</h3>
+            <p class="service-description">
+              Implementing artificial intelligence to solve complex business
               problems.
-            </li>
-            <li>📈 Continuous Learner – Always expanding my skill set.</li>
-          </ul>
-          <p class="about-text">
-            With expertise in both front-end and back-end technologies, I create
-            robust and scalable applications that deliver exceptional user
-            experiences. My journey in tech is driven by curiosity and a passion
-            for creating impactful solutions.
-          </p>
-          <div class="about-stats">
-            <div class="stat-item">
-              <div class="stat-number">10+</div>
-              <div class="stat-label">Projects Completed</div>
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Machine Learning</span>
+              <span
+                ><i class="fas fa-check"></i> Natural Language Processing</span
+              >
+              <span><i class="fas fa-check"></i> Computer Vision</span>
             </div>
-            <div class="stat-item">
-              <div class="stat-number">5+</div>
-              <div class="stat-label">Technologies</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+              <div class="icon-bg"></div>
             </div>
-            <div class="stat-item">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Satisfaction</div>
+            <h3 class="service-title">Consulting</h3>
+            <p class="service-description">
+              Expert advice on technology stack, architecture, and digital
+              transformation.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Tech Stack Selection</span>
+              <span><i class="fas fa-check"></i> Architecture Review</span>
+              <span><i class="fas fa-check"></i> Performance Audit</span>
             </div>
           </div>
         </div>
@@ -140,87 +424,196 @@
     <!-- Skills Section -->
     <section id="skills" class="skills scroll-animate">
       <div class="container">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-category">
-          <h3>Programming Languages</h3>
-          <div class="skills-grid">
-            <div class="skill">
-              <div class="skill-icon">
+        <div class="section-header">
+          <h4 class="section-subtitle">My Abilities</h4>
+          <h2 class="section-title">Skills & Technologies</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="skills-container">
+          <div class="skills-chart">
+            <h3 class="chart-title">Technical Skills</h3>
+            <div class="chart-container">
+              <canvas id="skillsChart"></canvas>
+            </div>
+          </div>
+          <div class="skills-content">
+            <h3 class="skills-subtitle">My Expertise</h3>
+            <p>
+              I've worked with a wide range of technologies in the web
+              development world. From backend to frontend, I love building
+              digital experiences that are both beautiful and functional.
+            </p>
+            <div class="skills-progress">
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>Frontend Development</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>Backend Development</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>UI/UX Design</span>
+                  <span>80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>Problem Solving</span>
+                  <span>95%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="technologies-grid">
+          <div class="tech-category">
+            <h3>Frontend</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                  alt="HTML"
+                  alt="HTML5"
                 />
+                <span>HTML5</span>
               </div>
-              <div class="skill-name">HTML</div>
-              <div class="skill-level">
-                <div class="skill-progress" style="width: 98%"></div>
-              </div>
-              <div class="skill-percent">98%</div>
-            </div>
-            <div class="skill">
-              <div class="skill-icon">
+              <div class="tech-item">
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                  alt="CSS"
+                  alt="CSS3"
                 />
+                <span>CSS3</span>
               </div>
-              <div class="skill-name">CSS</div>
-              <div class="skill-level">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
-              <div class="skill-percent">80%</div>
-            </div>
-            <div class="skill">
-              <div class="skill-icon">
+              <div class="tech-item">
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
                   alt="JavaScript"
                 />
+                <span>JavaScript</span>
               </div>
-              <div class="skill-name">JavaScript</div>
-              <div class="skill-level">
-                <div class="skill-progress" style="width: 60%"></div>
-              </div>
-              <div class="skill-percent">60%</div>
-            </div>
-            <div class="skill">
-              <div class="skill-icon">
+              <div class="tech-item">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
-                  alt="C"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                  alt="React"
                 />
+                <span>React</span>
               </div>
-              <div class="skill-name">C</div>
-              <div class="skill-level">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-              <div class="skill-percent">90%</div>
-            </div>
-            <div class="skill">
-              <div class="skill-icon">
+              <div class="tech-item">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                  alt="C++"
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+                  alt="Vue.js"
                 />
+                <span>Vue.js</span>
               </div>
-              <div class="skill-name">C++</div>
-              <div class="skill-level">
-                <div class="skill-progress" style="width: 99%"></div>
-              </div>
-              <div class="skill-percent">99%</div>
             </div>
-            <div class="skill">
-              <div class="skill-icon">
+          </div>
+          <div class="tech-category">
+            <h3>Backend</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                  alt="Node.js"
+                />
+                <span>Node.js</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                  alt="Express"
+                />
+                <span>Express</span>
+              </div>
+              <div class="tech-item">
                 <img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
                   alt="Python"
                 />
+                <span>Python</span>
               </div>
-              <div class="skill-name">Python</div>
-              <div class="skill-level">
-                <div class="skill-progress" style="width: 95%"></div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                  alt="Django"
+                />
+                <span>Django</span>
               </div>
-              <div class="skill-percent">95%</div>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3>Database</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                  alt="MongoDB"
+                />
+                <span>MongoDB</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                  alt="MySQL"
+                />
+                <span>MySQL</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                  alt="PostgreSQL"
+                />
+                <span>PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3>DevOps & Tools</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                  alt="Docker"
+                />
+                <span>Docker</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  alt="Git"
+                />
+                <span>Git</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg"
+                  alt="AWS"
+                />
+                <span>AWS</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                  alt="Firebase"
+                />
+                <span>Firebase</span>
+              </div>
             </div>
           </div>
         </div>
@@ -231,236 +624,485 @@
     <section id="projects" class="projects scroll-animate">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">
-            <span class="title-decorator">//</span> My Projects
-            <span class="title-highlight"></span>
-          </h2>
-          <p class="section-subtitle">Crafted with precision and innovation</p>
+          <h4 class="section-subtitle">My Work</h4>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="section-divider"></div>
         </div>
-
         <div class="filter-container">
           <button class="filter-btn active" data-filter="all">
-            <span class="btn-icon"><i class="fas fa-layer-group"></i></span>
-            <span class="btn-text">All Projects</span>
-            <span class="btn-count">3</span>
+            All Projects
           </button>
-          <button class="filter-btn" data-filter="ai">
-            <span class="btn-icon"><i class="fas fa-brain"></i></span>
-            <span class="btn-text">AI/ML</span>
-            <span class="btn-count">1</span>
-          </button>
-          <button class="filter-btn" data-filter="game">
-            <span class="btn-icon"><i class="fas fa-gamepad"></i></span>
-            <span class="btn-text">Games</span>
-            <span class="btn-count">1</span>
-          </button>
-          <button class="filter-btn" data-filter="ui">
-            <span class="btn-icon"><i class="fas fa-paint-brush"></i></span>
-            <span class="btn-text">UI/UX</span>
-            <span class="btn-count">1</span>
-          </button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="app">App</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="ai">AI/ML</button>
         </div>
-
-        <div class="projects-container">
+        <div class="projects-grid">
           <!-- Project 1 -->
-          <div class="project-card" data-category="ai">
-            <div class="project-badge">Featured</div>
-            <div class="project-image-container">
+          <div class="project-card" data-category="web">
+            <div class="project-image">
               <img
-                src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
-                alt="AI Chat Bot"
-                class="project-image"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="E-commerce Platform"
               />
               <div class="project-overlay">
+                <div class="project-badge">Featured</div>
                 <div class="overlay-content">
-                  <h3>AI Chat Bot</h3>
-                  <div class="tech-preview">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">NLP</span>
+                  <h3>E-commerce Platform</h3>
+                  <p>Full-featured online store with payment integration</p>
+                  <div class="project-tech">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
-              <div class="project-meta">
-                <span class="project-date"
-                  ><i class="far fa-calendar-alt"></i> May 2023</span
-                >
-                <span class="project-difficulty">
-                  <i class="fas fa-bolt"></i>
-                  <span class="difficulty-level">Advanced</span>
-                </span>
-              </div>
-              <h3 class="project-title">Neural Conversational AI</h3>
-              <p class="project-desc">
-                An advanced AI-powered chatbot with contextual understanding and
-                personality adaptation using transformer architecture and custom
-                NLP pipelines.
+              <h3 class="project-title">E-commerce Platform</h3>
+              <p class="project-description">
+                A complete e-commerce solution with product management, cart
+                functionality, and secure payment processing.
               </p>
-              <div class="project-stats">
-                <div class="stat-item">
-                  <i class="fas fa-code-branch"></i>
-                  <span>12K+</span> LOC
-                </div>
-                <div class="stat-item">
-                  <i class="fas fa-database"></i>
-                  <span>1.2M</span> Training Samples
-                </div>
-              </div>
               <div class="project-links">
-                <a
-                  href="../YashSingh.com/Ai chatbot/AI.html"
-                  class="project-link live"
-                  target="_blank"
-                >
-                  <i class="fas fa-rocket"></i> Live Demo
-                  <span class="link-hover-effect"></span>
+                <a href="#" class="project-link">
+                  <i class="fas fa-eye"></i> Live Demo
                 </a>
-                <a
-                  href="https://github.com/yashsinghdev/YashSingh.com/tree/main/Ai%20chatbot"
-                  class="project-link code"
-                  target="_blank"
-                >
-                  <i class="fab fa-github"></i> Source Code
-                  <span class="link-hover-effect"></span>
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> View Code
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 2 -->
-          <div class="project-card" data-category="game">
-            <div class="project-image-container">
+          <div class="project-card" data-category="app">
+            <div class="project-image">
               <img
-                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Stone Paper Scissors"
-                class="project-image"
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Fitness App"
               />
               <div class="project-overlay">
                 <div class="overlay-content">
-                  <h3>Stone Paper Scissors</h3>
-                  <div class="tech-preview">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">WebGL</span>
-                    <span class="tech-tag">Game AI</span>
+                  <h3>Fitness Tracker</h3>
+                  <p>Mobile app for workout tracking and health monitoring</p>
+                  <div class="project-tech">
+                    <span>React Native</span>
+                    <span>Firebase</span>
+                    <span>Redux</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
-              <div class="project-meta">
-                <span class="project-date"
-                  ><i class="far fa-calendar-alt"></i> Mar 2023</span
-                >
-                <span class="project-difficulty">
-                  <i class="fas fa-bolt"></i>
-                  <span class="difficulty-level">Intermediate</span>
-                </span>
-              </div>
-              <h3 class="project-title">Adaptive RPS Game Engine</h3>
-              <p class="project-desc">
-                A competitive Rock-Paper-Scissors platform with adaptive AI
-                opponent, tournament mode, and real-time analytics dashboard.
+              <h3 class="project-title">Fitness Tracker</h3>
+              <p class="project-description">
+                Cross-platform mobile application for tracking workouts,
+                nutrition, and health metrics with data visualization.
               </p>
-              <div class="project-stats">
-                <div class="stat-item">
-                  <i class="fas fa-trophy"></i>
-                  <span>98%</span> Win Rate
-                </div>
-                <div class="stat-item">
-                  <i class="fas fa-users"></i>
-                  <span>5K+</span> Players
-                </div>
-              </div>
               <div class="project-links">
-                <a
-                  href="../YashSingh.com/Stone Paper Scissors/SPS.html"
-                  class="project-link live"
-                  target="_blank"
-                >
-                  <i class="fas fa-gamepad"></i> Play Now
-                  <span class="link-hover-effect"></span>
+                <a href="#" class="project-link">
+                  <i class="fas fa-eye"></i> Live Demo
                 </a>
-                <a href="#" class="project-link code" target="_blank">
-                  <i class="fab fa-gitlab"></i> Repository
-                  <span class="link-hover-effect"></span>
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> View Code
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 3 -->
-          <div class="project-card" data-category="ui">
-            <div class="project-badge">Award Winner</div>
-            <div class="project-image-container">
+          <div class="project-card" data-category="design">
+            <div class="project-image">
               <img
                 src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                alt="Food Web UI"
-                class="project-image"
+                alt="Food Delivery UI"
               />
               <div class="project-overlay">
+                <div class="project-badge">Award Winner</div>
                 <div class="overlay-content">
-                  <h3>Food Web UI</h3>
-                  <div class="tech-preview">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Framer Motion</span>
-                    <span class="tech-tag">SCSS</span>
+                  <h3>Food Delivery UI</h3>
+                  <p>Modern interface for food ordering service</p>
+                  <div class="project-tech">
+                    <span>Figma</span>
+                    <span>Adobe XD</span>
+                    <span>Illustrator</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
-              <div class="project-meta">
-                <span class="project-date"
-                  ><i class="far fa-calendar-alt"></i> Jan 2023</span
-                >
-                <span class="project-difficulty">
-                  <i class="fas fa-bolt"></i>
-                  <span class="difficulty-level">Expert</span>
-                </span>
-              </div>
-              <h3 class="project-title">Gourmet Experience Platform</h3>
-              <p class="project-desc">
-                A premium food discovery and ordering interface with 3D menu
-                visualizations, AI recommendations, and seamless checkout flow.
+              <h3 class="project-title">Food Delivery UI</h3>
+              <p class="project-description">
+                Award-winning user interface design for a food delivery
+                application with intuitive navigation and micro-interactions.
               </p>
-              <div class="project-stats">
-                <div class="stat-item">
-                  <i class="fas fa-star"></i>
-                  <span>4.9</span> Rating
-                </div>
-                <div class="stat-item">
-                  <i class="fas fa-shopping-cart"></i>
-                  <span>12K+</span> Orders
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fas fa-eye"></i> View Prototype
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-download"></i> Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card" data-category="ai">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
+                alt="AI Chatbot"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>AI Chatbot</h3>
+                  <p>Contextual conversational assistant</p>
+                  <div class="project-tech">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>NLTK</span>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">AI Chatbot</h3>
+              <p class="project-description">
+                Natural language processing chatbot with contextual
+                understanding and personality adaptation.
+              </p>
               <div class="project-links">
-                <a
-                  href="../YashSingh.com/FoodProject/Food.html"
-                  class="project-link live"
-                  target="_blank"
-                >
-                  <i class="fas fa-store"></i> Visit Platform
-                  <span class="link-hover-effect"></span>
+                <a href="#" class="project-link">
+                  <i class="fas fa-eye"></i> Try Demo
                 </a>
-                <a href="#" class="project-link code" target="_blank">
-                  <i class="fab fa-bitbucket"></i> Codebase
-                  <span class="link-hover-effect"></span>
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card" data-category="web">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Portfolio Website"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>Portfolio Template</h3>
+                  <p>Minimalist portfolio for creative professionals</p>
+                  <div class="project-tech">
+                    <span>HTML/CSS</span>
+                    <span>JavaScript</span>
+                    <span>GSAP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Portfolio Template</h3>
+              <p class="project-description">
+                Responsive portfolio template with smooth animations and clean
+                design for creative professionals.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fas fa-eye"></i> Live Demo
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-shopping-cart"></i> Buy Template
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card" data-category="app">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Game App"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>Mobile Game</h3>
+                  <p>Interactive puzzle game with social features</p>
+                  <div class="project-tech">
+                    <span>Unity</span>
+                    <span>C#</span>
+                    <span>Firebase</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Mobile Game</h3>
+              <p class="project-description">
+                Engaging puzzle game with multiplayer functionality and social
+                sharing features.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fab fa-google-play"></i> Play Store
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fab fa-apple"></i> App Store
                 </a>
               </div>
             </div>
           </div>
         </div>
-
         <div class="projects-footer">
-          <p class="view-more">
-            <span>Explore more projects on</span>
-            <a href="#" class="github-link">
-              <i class="fab fa-github"></i> GitHub
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </p>
+          <a href="#" class="btn-primary">
+            <span>View All Projects</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials scroll-animate">
+      <div class="container">
+        <div class="section-header">
+          <h4 class="section-subtitle">Client Feedback</h4>
+          <h2 class="section-title">Testimonials</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="testimonials-slider swiper">
+          <div class="swiper-wrapper">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide swiper-slide">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    Yash delivered our project ahead of schedule and exceeded
+                    our expectations. His attention to detail and
+                    problem-solving skills are exceptional.
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img
+                      src="https://randomuser.me/api/portraits/men/32.jpg"
+                      alt="John D."
+                    />
+                  </div>
+                  <div class="author-info">
+                    <h4>John D.</h4>
+                    <span>CEO, TechSolutions Inc.</span>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-slide swiper-slide">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    Working with Yash was a pleasure. He transformed our vague
+                    ideas into a beautiful, functional web application that our
+                    users love. Highly recommended!
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img
+                      src="https://randomuser.me/api/portraits/women/44.jpg"
+                      alt="Sarah M."
+                    />
+                  </div>
+                  <div class="author-info">
+                    <h4>Sarah M.</h4>
+                    <span>Product Manager, StartupCo</span>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide swiper-slide">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    The mobile app Yash developed for us has significantly
+                    improved our customer engagement. His technical expertise
+                    and creative approach were invaluable.
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img
+                      src="https://randomuser.me/api/portraits/men/75.jpg"
+                      alt="Michael T."
+                    />
+                  </div>
+                  <div class="author-info">
+                    <h4>Michael T.</h4>
+                    <span>Director, Retail Innovations</span>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-slide swiper-slide">
+              <div class="testimonial-content">
+                <div class="testimonial-quote">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    Yash's ability to understand complex requirements and
+                    deliver elegant solutions is remarkable. We've hired him for
+                    multiple projects and will continue to do so.
+                  </p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-image">
+                    <img
+                      src="https://randomuser.me/api/portraits/women/68.jpg"
+                      alt="Emily R."
+                    />
+                  </div>
+                  <div class="author-info">
+                    <h4>Emily R.</h4>
+                    <span>CTO, Enterprise Solutions</span>
+                    <div class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog scroll-animate">
+      <div class="container">
+        <div class="section-header">
+          <h4 class="section-subtitle">Latest Articles</h4>
+          <h2 class="section-title">My Blog</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="blog-grid">
+          <!-- Blog Post 1 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Web Development"
+              />
+              <div class="blog-badge">Development</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                <span><i class="far fa-comments"></i> 24 Comments</span>
+              </div>
+              <h3 class="blog-title">The Future of Web Development in 2023</h3>
+              <p class="blog-excerpt">
+                Exploring the emerging technologies and trends that are shaping
+                the future of web development...
+              </p>
+              <a href="#" class="blog-link"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Blog Post 2 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80"
+                alt="UI/UX Design"
+              />
+              <div class="blog-badge">Design</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> May 28, 2023</span>
+                <span><i class="far fa-comments"></i> 18 Comments</span>
+              </div>
+              <h3 class="blog-title">Principles of Minimalist UI Design</h3>
+              <p class="blog-excerpt">
+                How to create clean, functional interfaces that enhance user
+                experience without unnecessary elements...
+              </p>
+              <a href="#" class="blog-link"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Blog Post 3 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1655720828013-f05510c86eae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="AI Technology"
+              />
+              <div class="blog-badge">Technology</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> April 10, 2023</span>
+                <span><i class="far fa-comments"></i> 32 Comments</span>
+              </div>
+              <h3 class="blog-title">Integrating AI into Web Applications</h3>
+              <p class="blog-excerpt">
+                Practical guide to implementing artificial intelligence features
+                in your web projects to enhance functionality...
+              </p>
+              <a href="#" class="blog-link"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="blog-footer">
+          <a href="#" class="btn-primary">
+            <span>View All Articles</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -468,145 +1110,280 @@
     <!-- Contact Section -->
     <section id="contact" class="contact scroll-animate">
       <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-header">
+          <h4 class="section-subtitle">Get In Touch</h4>
+          <h2 class="section-title">Contact Me</h2>
+          <div class="section-divider"></div>
+        </div>
         <div class="contact-container">
           <div class="contact-info">
-            <div class="contact-item">
+            <div class="contact-card">
               <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
               </div>
-              <div class="contact-text">
+              <div class="contact-details">
                 <h3>Email</h3>
+                <p>yashsinghfire704@gmail.com</p>
                 <a href="mailto:yashsinghfire704@gmail.com"
-                  >yashsinghfire704@gmail.com</a
-                >
+                  >Send Message <i class="fas fa-arrow-right"></i
+                ></a>
               </div>
             </div>
-            <div class="contact-item">
+            <div class="contact-card">
               <div class="contact-icon">
-                <i class="fas fa-phone"></i>
+                <i class="fas fa-phone-alt"></i>
               </div>
-              <div class="contact-text">
+              <div class="contact-details">
                 <h3>Phone</h3>
-                <p>+91 88 1808 9674</p>
+                <p>+91 1234567890</p>
+                <a href="tel:+911234567890"
+                  >Call Me <i class="fas fa-arrow-right"></i
+                ></a>
               </div>
             </div>
-            <div class="contact-item">
+            <div class="contact-card">
               <div class="contact-icon">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
-              <div class="contact-text">
+              <div class="contact-details">
                 <h3>Location</h3>
-                <p>India</p>
+                <p>New Delhi, India</p>
+                <a href="https://maps.google.com" target="_blank"
+                  >View Map <i class="fas fa-arrow-right"></i
+                ></a>
               </div>
-            </div>
-            <div class="social-icons">
-              <a
-                href="https://www.instagram.com/yash_rajput.18"
-                target="_blank"
-                class="social-link"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/yash-singh-1824a8310/"
-                target="_blank"
-                class="social-link"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a
-                href="https://github.com/yashsinghdev"
-                target="_blank"
-                class="social-link"
-              >
-                <i class="fab fa-github"></i>
-              </a>
             </div>
           </div>
           <div class="contact-form">
             <form id="contactForm">
               <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder=" "
-                  required
-                />
-                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" name="name" required />
+                <label for="name">Your Name</label>
+                <span class="form-icon"><i class="fas fa-user"></i></span>
               </div>
               <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder=" "
-                  required
-                />
-                <label for="email" class="form-label">Your Email</label>
+                <input type="email" id="email" name="email" required />
+                <label for="email">Your Email</label>
+                <span class="form-icon"><i class="fas fa-envelope"></i></span>
               </div>
               <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="subject"
-                  placeholder=" "
-                />
-                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+                <label for="subject">Subject</label>
+                <span class="form-icon"><i class="fas fa-tag"></i></span>
               </div>
               <div class="form-group">
                 <textarea
-                  class="form-control"
                   id="message"
-                  placeholder=" "
+                  name="message"
+                  rows="5"
                   required
                 ></textarea>
-                <label for="message" class="form-label">Your Message</label>
+                <label for="message">Your Message</label>
+                <span class="form-icon"><i class="fas fa-comment"></i></span>
               </div>
-              <button type="submit" class="submit-btn">Send Message</button>
+              <button type="submit" class="submit-btn">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
             </form>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Achievements Section -->
+    <section class="achievements scroll-animate">
+      <div class="container">
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-count" data-count="50">0</h3>
+              <p class="achievement-text">Projects Completed</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-count" data-count="35">0</h3>
+              <p class="achievement-text">Happy Clients</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-count" data-count="150000">0</h3>
+              <p class="achievement-text">Lines of Code</p>
+            </div>
+          </div>
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-count" data-count="8">0</h3>
+              <p class="achievement-text">Awards Won</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients scroll-animate">
+      <div class="container">
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper">
+            <div class="client-slide swiper-slide">
+              <img
+                src="https://via.placeholder.com/150x60?text=Client+1"
+                alt="Client Logo"
+              />
+            </div>
+            <div class="client-slide swiper-slide">
+              <img
+                src="https://via.placeholder.com/150x60?text=Client+2"
+                alt="Client Logo"
+              />
+            </div>
+            <div class="client-slide swiper-slide">
+              <img
+                src="https://via.placeholder.com/150x60?text=Client+3"
+                alt="Client Logo"
+              />
+            </div>
+            <div class="client-slide swiper-slide">
+              <img
+                src="https://via.placeholder.com/150x60?text=Client+4"
+                alt="Client Logo"
+              />
+            </div>
+            <div class="client-slide swiper-slide">
+              <img
+                src="https://via.placeholder.com/150x60?text=Client+5"
+                alt="Client Logo"
+              />
+            </div>
+            <div class="client-slide swiper-slide">
+              <img
+                src="https://via.placeholder.com/150x60?text=Client+6"
+                alt="Client Logo"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="footer scroll-animate">
+    <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-logo">Yash Singh</div>
+          <div class="footer-about">
+            <a href="#home" class="footer-logo">Yash Singh</a>
+            <p>
+              Full Stack Developer creating digital experiences that matter.
+              Combining technical expertise with creative problem-solving.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
           <div class="footer-links">
-            <a href="#home" class="footer-link">Home</a>
-            <a href="#about" class="footer-link">About</a>
-            <a href="#skills" class="footer-link">Skills</a>
-            <a href="#projects" class="footer-link">Projects</a>
-            <a href="#contact" class="footer-link">Contact</a>
+            <h3 class="footer-title">Quick Links</h3>
+            <ul>
+              <li>
+                <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#about"><i class="fas fa-chevron-right"></i> About</a>
+              </li>
+              <li>
+                <a href="#services"
+                  ><i class="fas fa-chevron-right"></i> Services</a
+                >
+              </li>
+              <li>
+                <a href="#projects"
+                  ><i class="fas fa-chevron-right"></i> Projects</a
+                >
+              </li>
+              <li>
+                <a href="#blog"><i class="fas fa-chevron-right"></i> Blog</a>
+              </li>
+              <li>
+                <a href="#contact"
+                  ><i class="fas fa-chevron-right"></i> Contact</a
+                >
+              </li>
+            </ul>
           </div>
-          <div class="footer-social">
-            <a
-              href="https://www.instagram.com/yash_rajput.18"
-              target="_blank"
-              class="footer-social-link"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/yash-singh-1824a8310/"
-              target="_blank"
-              class="footer-social-link"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a
-              href="https://github.com/yashsinghdev"
-              target="_blank"
-              class="footer-social-link"
-            >
-              <i class="fab fa-github"></i>
-            </a>
+          <div class="footer-links">
+            <h3 class="footer-title">Services</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Web Development</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> App Development</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> UI/UX Design</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Backend Development</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> AI Solutions</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Consulting</a>
+              </li>
+            </ul>
           </div>
-          <p class="copyright">&copy; 2025 Yash Singh. All rights reserved.</p>
+          <div class="footer-newsletter">
+            <h3 class="footer-title">Newsletter</h3>
+            <p>
+              Subscribe to my newsletter for the latest updates and articles.
+            </p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your Email" required />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Yash Singh. All Rights Reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -616,6 +1393,9 @@
       <i class="fas fa-arrow-up"></i>
     </a>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="portfolio.js"></script>
+    <script></script>
   </body>
 </html>
