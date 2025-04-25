@@ -391,12 +391,15 @@ img {
 
 /* Header */
 .header-container {
-  display: sticky;
-  top: 0;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
-  position: relative;
+  position: static;
+  top: 0;
+  width: 100%;
+  background: var(--bg-color);
+  z-index: 1000;
 }
 
 .logo {
@@ -599,6 +602,7 @@ img {
   display: flex;
   gap: 2rem;
   margin-top: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-btn i {
@@ -613,7 +617,7 @@ img {
 .social-icons {
   display: flex;
   gap: 1.5rem;
-  margin-top: 4rem;
+  margin-top: 0.5rem;
 }
 
 .social-link {
@@ -685,8 +689,8 @@ img {
 
 .image-wrapper {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   margin: 0 auto;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   overflow: hidden;
@@ -728,8 +732,8 @@ img {
 
 .tech-badge {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: var(--card-bg);
   border-radius: 50%;
   display: flex;
@@ -747,25 +751,25 @@ img {
 
 .tech-badge:nth-child(1) {
   top: 10%;
-  left: -5%;
+  left: 5%;
   animation-delay: 0s;
 }
 
 .tech-badge:nth-child(2) {
   top: 70%;
-  left: -5%;
+  left: 5%;
   animation-delay: 1s;
 }
 
 .tech-badge:nth-child(3) {
   top: 70%;
-  right: -5%;
+  right: 5%;
   animation-delay: 2s;
 }
 
 .tech-badge:nth-child(4) {
   top: 10%;
-  right: -5%;
+  right: 5%;
   animation-delay: 3s;
 }
 
@@ -1026,7 +1030,21 @@ img {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
-
+#education_link {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px var(--primary-color);
+}
+#education_link:hover {
+  color: var(--text-light);
+  text-shadow: 0 0 10px var(--primary-color);
+  transition: scale 0.3s ease;
+}
 /* Services Section */
 .services {
   padding: 10rem 0;
