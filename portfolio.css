@@ -309,7 +309,7 @@ img {
 
 .theme-toggle {
   position: fixed;
-  bottom: 2rem;
+  top: 8rem;
   right: 2rem;
   z-index: 9999; /* Higher than everything else */
   display: flex;

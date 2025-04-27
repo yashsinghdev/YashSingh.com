@@ -208,8 +208,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Experience Counter
   const experienceBadge = document.querySelector(".experience-badge .years");
-  const targetYears = 5;
-  let currentYears = 0;
+  const targetYears = 0;
+  let currentYears = -1;
   const experienceInterval = setInterval(() => {
     currentYears++;
     experienceBadge.textContent = currentYears;
