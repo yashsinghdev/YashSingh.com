@@ -3,20 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yash Singh | Full Stack Developer</title>
+    <title>Yash Singh | Full Stack Developer & Designer</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Yash Singh - Full Stack Developer, UI/UX Designer, and Tech Enthusiast"
+    />
+    <meta
+      name="keywords"
+      content="Full Stack Developer, Web Developer, UI/UX Designer, Portfolio, JavaScript, React, Node.js"
+    />
+    <meta name="author" content="Yash Singh" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Swiper JS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.132.2/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.132.2/examples/jsm/"
+        }
+      }
+    </script>
+
     <link rel="stylesheet" href="portfolio.css" />
+    <!-- <style></style> -->
   </head>
   <body>
     <!-- Theme Toggle -->
@@ -27,6 +64,7 @@
         <i class="fas fa-sun"></i>
         <span class="theme-ball"></span>
       </label>
+      <span class="theme-text">Theme</span>
     </div>
 
     <!-- Loader -->
@@ -53,17 +91,17 @@
       </div>
     </div>
 
-    <!-- Floating Particles -->
-    <canvas id="particles-js" class="particles-js"></canvas>
+    <!-- 3D Background -->
+    <canvas id="threejs-background"></canvas>
 
     <!-- Cursor Effects -->
     <div class="cursor cursor-outer"></div>
     <div class="cursor cursor-inner"></div>
 
     <!-- Header -->
-    <header id="header">
+    <header class="header" id="header">
       <div class="container header-container">
-        <a href="#home" class="logo">Yash Singh</a>
+        <a href="#home" class="logo"><span>Yash Singh</span></a>
 
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -105,7 +143,7 @@
             <span class="nav-icon"><i class="fas fa-envelope"></i></span>
             <span class="nav-text">Contact</span>
           </a>
-          <a href="Image/Resume.pdf" class="resume-btn">
+          <a href="Image/Resume.pdf" class="resume-btn" download>
             <span class="btn-icon"><i class="fas fa-file-alt"></i></span>
             <span class="btn-text">Resume</span>
           </a>
@@ -114,10 +152,10 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero scroll-animate">
+    <section id="home" class="hero section">
       <div class="container">
         <div class="hero-content">
-          <div class="hero-text">
+          <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
             <h4 class="hero-subtitle">Hello, I'm</h4>
             <h1 class="hero-title">Yash <span>Singh</span></h1>
             <div class="typewriter" id="typewriter"></div>
@@ -127,16 +165,16 @@
             <div class="hero-buttons">
               <a href="#projects" class="hero-btn btn-primary">
                 <span>View My Work</span>
-                <i class="fas fa-arrow-right"></i>
+                <i class="fas fa-arrow-right btn-icon"></i>
               </a>
               <a href="#contact" class="hero-btn btn-secondary">
                 <span>Hire Me</span>
-                <i class="fas fa-paper-plane"></i>
+                <i class="fas fa-paper-plane btn-icon"></i>
               </a>
             </div>
           </div>
 
-          <div class="hero-image">
+          <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
             <div class="image-wrapper">
               <img src="Image/logo.jpg" alt="Yash Singh" class="main-image" />
               <div class="image-overlay"></div>
@@ -212,15 +250,15 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about scroll-animate">
+    <section id="about" class="about section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h4 class="section-subtitle">Get To Know More</h4>
           <h2 class="section-title">About Me</h2>
           <div class="section-divider"></div>
         </div>
         <div class="about-container">
-          <div class="about-image">
+          <div class="about-image" data-aos="fade-right">
             <div class="image-frame">
               <img src="Image/logo.jpg" alt="About Yash Singh" />
               <div class="frame-decoration"></div>
@@ -230,7 +268,7 @@
               </div>
             </div>
           </div>
-          <div class="about-content">
+          <div class="about-content" data-aos="fade-left">
             <div class="about-tabs">
               <button class="tab-btn active" data-tab="personal">
                 Personal
@@ -262,7 +300,7 @@
                   <span class="detail-value">Open to Work</span>
                 </div>
               </div>
-              <a href="#contact" class="about-btn">Contact Me</a>
+              <a href="#contact" class="btn-tertiary">Contact Me</a>
             </div>
             <div class="tab-content" id="education-tab">
               <div class="timeline">
@@ -270,8 +308,8 @@
                   <div class="timeline-date">2026 - Present</div>
                   <div class="timeline-content">
                     <h3>Bachelor's in Computer Application</h3>
-                    <a href="https://igu.ac.in/"
-                      ><p id="education_link">Indra Gandhi Universty</p></a
+                    <a href="https://igu.ac.in/" target="_blank"
+                      ><p id="education_link">Indra Gandhi University</p></a
                     >
                     <p></p>
                   </div>
@@ -280,7 +318,9 @@
                   <div class="timeline-date">2018 - 2020</div>
                   <div class="timeline-content">
                     <h3>Higher Secondary Education</h3>
-                    <a href="https://vivekanandschooldharuhera.com/"
+                    <a
+                      href="https://vivekanandschooldharuhera.com/"
+                      target="_blank"
                       ><p id="education_link">Vivekanand Sr Sec School</p></a
                     >
                     <p>Commerce Stream</p>
@@ -294,7 +334,7 @@
                   <div class="timeline-date">2022 - Present</div>
                   <div class="timeline-content">
                     <h3>Full Stack Developer</h3>
-                    <p>Company Name</p>
+                    <p>Freelance</p>
                     <p>
                       Developed and maintained web applications using modern
                       technologies.
@@ -305,7 +345,7 @@
                   <div class="timeline-date">2021 - 2022</div>
                   <div class="timeline-content">
                     <h3>Frontend Developer</h3>
-                    <p>Company Name</p>
+                    <p>Freelance</p>
                     <p>Created responsive and interactive user interfaces.</p>
                   </div>
                 </div>
@@ -317,15 +357,15 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services scroll-animate">
+    <section id="services" class="services section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h4 class="section-subtitle">What I Offer</h4>
           <h2 class="section-title">My Services</h2>
           <div class="section-divider"></div>
         </div>
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
             <div class="service-icon">
               <i class="fas fa-code"></i>
               <div class="icon-bg"></div>
@@ -341,7 +381,7 @@
               <span><i class="fas fa-check"></i> Performance Optimized</span>
             </div>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
             <div class="service-icon">
               <i class="fas fa-mobile-alt"></i>
               <div class="icon-bg"></div>
@@ -357,7 +397,7 @@
               <span><i class="fas fa-check"></i> Offline Support</span>
             </div>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
             <div class="service-icon">
               <i class="fas fa-paint-brush"></i>
               <div class="icon-bg"></div>
@@ -373,7 +413,7 @@
               <span><i class="fas fa-check"></i> Usability Testing</span>
             </div>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
             <div class="service-icon">
               <i class="fas fa-server"></i>
               <div class="icon-bg"></div>
@@ -389,7 +429,7 @@
               <span><i class="fas fa-check"></i> Cloud Integration</span>
             </div>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="500">
             <div class="service-icon">
               <i class="fas fa-brain"></i>
               <div class="icon-bg"></div>
@@ -407,7 +447,7 @@
               <span><i class="fas fa-check"></i> Computer Vision</span>
             </div>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="600">
             <div class="service-icon">
               <i class="fas fa-chart-line"></i>
               <div class="icon-bg"></div>
@@ -428,21 +468,21 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills scroll-animate">
+    <section id="skills" class="skills section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h4 class="section-subtitle">My Abilities</h4>
           <h2 class="section-title">Skills & Technologies</h2>
           <div class="section-divider"></div>
         </div>
         <div class="skills-container">
-          <div class="skills-chart">
+          <div class="skills-chart" data-aos="fade-right">
             <h3 class="chart-title">Technical Skills</h3>
             <div class="chart-container">
               <canvas id="skillsChart"></canvas>
             </div>
           </div>
-          <div class="skills-content">
+          <div class="skills-content" data-aos="fade-left">
             <h3 class="skills-subtitle">My Expertise</h3>
             <p>
               I've worked with a wide range of technologies in the web
@@ -490,7 +530,7 @@
           </div>
         </div>
         <div class="technologies-grid">
-          <div class="tech-category">
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
             <h3>Frontend</h3>
             <div class="tech-stack">
               <div class="tech-item">
@@ -530,7 +570,7 @@
               </div>
             </div>
           </div>
-          <div class="tech-category">
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
             <h3>Backend</h3>
             <div class="tech-stack">
               <div class="tech-item">
@@ -563,7 +603,7 @@
               </div>
             </div>
           </div>
-          <div class="tech-category">
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
             <h3>Database</h3>
             <div class="tech-stack">
               <div class="tech-item">
@@ -589,7 +629,7 @@
               </div>
             </div>
           </div>
-          <div class="tech-category">
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="400">
             <h3>DevOps & Tools</h3>
             <div class="tech-stack">
               <div class="tech-item">
@@ -627,14 +667,14 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects scroll-animate">
+    <section id="projects" class="projects section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h4 class="section-subtitle">My Work</h4>
           <h2 class="section-title">Featured Projects</h2>
           <div class="section-divider"></div>
         </div>
-        <div class="filter-container">
+        <div class="filter-container" data-aos="fade-up">
           <button class="filter-btn active" data-filter="all">
             All Projects
           </button>
@@ -645,7 +685,12 @@
         </div>
         <div class="projects-grid">
           <!-- Project 1 -->
-          <div class="project-card" data-category="web">
+          <div
+            class="project-card"
+            data-category="web"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <div class="project-image">
               <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -667,31 +712,38 @@
             <div class="project-content">
               <h3 class="project-title">E-commerce Platform</h3>
               <p class="project-description">
-                A complete e-commerce solution with product management, cart
-                functionality, and secure payment processing.
+                A complete online shopping solution with product management,
+                cart functionality, and secure payments.
               </p>
               <div class="project-links">
-                <a href="#" class="project-link">
-                  <i class="fas fa-eye"></i> Live Demo
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
                 </a>
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> View Code
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 2 -->
-          <div class="project-card" data-category="app">
+          <div
+            class="project-card"
+            data-category="app"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div class="project-image">
               <img
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Fitness App"
+                src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Task Management App"
               />
               <div class="project-overlay">
                 <div class="overlay-content">
-                  <h3>Fitness Tracker</h3>
-                  <p>Mobile app for workout tracking and health monitoring</p>
+                  <h3>Task Management App</h3>
+                  <p>Productivity application for organizing daily tasks</p>
                   <div class="project-tech">
                     <span>React Native</span>
                     <span>Firebase</span>
@@ -701,428 +753,481 @@
               </div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Fitness Tracker</h3>
+              <h3 class="project-title">Task Management App</h3>
               <p class="project-description">
-                Cross-platform mobile application for tracking workouts,
-                nutrition, and health metrics with data visualization.
+                Cross-platform mobile app for task management with cloud sync
+                and offline support.
               </p>
               <div class="project-links">
-                <a href="#" class="project-link">
-                  <i class="fas fa-eye"></i> Live Demo
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
                 </a>
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> View Code
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 3 -->
-          <div class="project-card" data-category="design">
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <div class="project-image">
               <img
-                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                alt="Food Delivery UI"
+                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                alt="Portfolio Design"
               />
               <div class="project-overlay">
-                <div class="project-badge">Award Winner</div>
                 <div class="overlay-content">
-                  <h3>Food Delivery UI</h3>
-                  <p>Modern interface for food ordering service</p>
+                  <h3>Portfolio Design</h3>
+                  <p>Modern portfolio design for creative professionals</p>
                   <div class="project-tech">
                     <span>Figma</span>
                     <span>Adobe XD</span>
-                    <span>Illustrator</span>
+                    <span>UI/UX</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Food Delivery UI</h3>
+              <h3 class="project-title">Portfolio Design</h3>
               <p class="project-description">
-                Award-winning user interface design for a food delivery
-                application with intuitive navigation and micro-interactions.
+                Custom portfolio design with responsive layouts and interactive
+                elements.
               </p>
               <div class="project-links">
-                <a href="FoodProject/Food.html" class="project-link">
-                  <i class="fas fa-eye"></i> View Prototype
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
                 </a>
-                <a href="#" class="project-link">
-                  <i class="fas fa-download"></i> Case Study
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-figma"></i>
+                  <span>Design File</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 4 -->
-          <div class="project-card" data-category="ai">
+          <div
+            class="project-card"
+            data-category="ai"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <div class="project-image">
               <img
-                src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
-                alt="AI Chatbot"
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Sentiment Analysis"
               />
               <div class="project-overlay">
                 <div class="overlay-content">
-                  <h3>AI Chatbot</h3>
-                  <p>Contextual conversational assistant</p>
+                  <h3>Sentiment Analysis</h3>
+                  <p>AI model for analyzing customer feedback sentiment</p>
                   <div class="project-tech">
                     <span>Python</span>
                     <span>TensorFlow</span>
-                    <span>NLTK</span>
+                    <span>NLP</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">AI Chatbot</h3>
+              <h3 class="project-title">Sentiment Analysis</h3>
               <p class="project-description">
-                Natural language processing chatbot with contextual
-                understanding and personality adaptation.
+                Machine learning model that classifies text sentiment with 92%
+                accuracy.
               </p>
               <div class="project-links">
-                <a href="Ai chatbot/AI.html" class="project-link">
-                  <i class="fas fa-eye"></i> Try Demo
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
                 </a>
-                <a href="#" class="project-link">
-                  <i class="fab fa-github"></i> View Code
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 5 -->
-          <div class="project-card" data-category="web">
+          <div
+            class="project-card"
+            data-category="web"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
             <div class="project-image">
               <img
-                src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Portfolio Website"
+                src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
+                alt="Blog Platform"
               />
               <div class="project-overlay">
                 <div class="overlay-content">
-                  <h3>Portfolio Template</h3>
-                  <p>Minimalist portfolio for creative professionals</p>
+                  <h3>Blog Platform</h3>
+                  <p>Content management system for bloggers</p>
                   <div class="project-tech">
-                    <span>HTML/CSS</span>
-                    <span>JavaScript</span>
-                    <span>GSAP</span>
+                    <span>Vue.js</span>
+                    <span>Node.js</span>
+                    <span>MySQL</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Portfolio Template</h3>
+              <h3 class="project-title">Blog Platform</h3>
               <p class="project-description">
-                Responsive portfolio template with smooth animations and clean
-                design for creative professionals.
+                Modern blogging platform with rich text editor and user
+                management.
               </p>
               <div class="project-links">
-                <a href="#" class="project-link">
-                  <i class="fas fa-eye"></i> Live Demo
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
                 </a>
-                <a href="#" class="project-link">
-                  <i class="fas fa-shopping-cart"></i> Buy Template
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Project 6 -->
-          <div class="project-card" data-category="app">
+          <div
+            class="project-card"
+            data-category="app"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             <div class="project-image">
               <img
-                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Game App"
+                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Fitness Tracker"
               />
               <div class="project-overlay">
                 <div class="overlay-content">
-                  <h3>Mobile Game</h3>
-                  <p>Interactive puzzle game with social features</p>
+                  <h3>Fitness Tracker</h3>
+                  <p>Mobile app for tracking workouts and nutrition</p>
                   <div class="project-tech">
-                    <span>Unity</span>
-                    <span>C#</span>
+                    <span>Flutter</span>
                     <span>Firebase</span>
+                    <span>Dart</span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-content">
-              <h3 class="project-title">Mobile Game</h3>
+              <h3 class="project-title">Fitness Tracker</h3>
               <p class="project-description">
-                Engaging puzzle game with multiplayer functionality and social
-                sharing features.
+                Cross-platform fitness application with exercise database and
+                progress tracking.
               </p>
               <div class="project-links">
-                <a href="#" class="project-link">
-                  <i class="fab fa-google-play"></i> Play Store
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
                 </a>
-                <a href="#" class="project-link">
-                  <i class="fab fa-apple"></i> App Store
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="projects-footer">
+        <div class="projects-footer" data-aos="fade-up">
           <a href="#" class="btn-primary">
             <span>View All Projects</span>
-            <i class="fas fa-arrow-right"></i>
+            <i class="fas fa-arrow-right btn-icon"></i>
           </a>
         </div>
       </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials scroll-animate">
+    <section id="testimonials" class="testimonials section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h4 class="section-subtitle">Client Feedback</h4>
           <h2 class="section-title">Testimonials</h2>
           <div class="section-divider"></div>
         </div>
-        <div class="testimonials-slider swiper">
-          <div class="swiper-wrapper">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-slide swiper-slide">
-              <div class="testimonial-content">
-                <div class="testimonial-quote">
-                  <i class="fas fa-quote-left"></i>
-                  <p>
-                    Yash delivered our project ahead of schedule and exceeded
-                    our expectations. His attention to detail and
-                    problem-solving skills are exceptional.
-                  </p>
-                </div>
-                <div class="testimonial-author">
-                  <div class="author-image">
-                    <img
-                      src="https://randomuser.me/api/portraits/men/32.jpg"
-                      alt="John D."
-                    />
-                  </div>
-                  <div class="author-info">
-                    <h4>John D.</h4>
-                    <span>CEO, TechSolutions Inc.</span>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
+        <div class="testimonials-slider">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Testimonial 1 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        Yash delivered our e-commerce platform ahead of schedule
+                        and exceeded our expectations. His attention to detail
+                        and problem-solving skills are exceptional. We've seen a
+                        40% increase in conversions since launch.
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/32.jpg"
+                          alt="John Smith"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>John Smith</h4>
+                        <span>CEO, TechSolutions Inc.</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Testimonial 2 -->
-            <div class="testimonial-slide swiper-slide">
-              <div class="testimonial-content">
-                <div class="testimonial-quote">
-                  <i class="fas fa-quote-left"></i>
-                  <p>
-                    Working with Yash was a pleasure. He transformed our vague
-                    ideas into a beautiful, functional web application that our
-                    users love. Highly recommended!
-                  </p>
-                </div>
-                <div class="testimonial-author">
-                  <div class="author-image">
-                    <img
-                      src="https://randomuser.me/api/portraits/women/44.jpg"
-                      alt="Sarah M."
-                    />
-                  </div>
-                  <div class="author-info">
-                    <h4>Sarah M.</h4>
-                    <span>Product Manager, StartupCo</span>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+              <!-- Testimonial 2 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        Working with Yash on our mobile app was a pleasure. He
+                        understood our vision perfectly and brought innovative
+                        ideas to the table. The app has been downloaded over
+                        50,000 times in the first month alone!
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/44.jpg"
+                          alt="Sarah Johnson"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <span>Product Manager, AppVenture</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Testimonial 3 -->
-            <div class="testimonial-slide swiper-slide">
-              <div class="testimonial-content">
-                <div class="testimonial-quote">
-                  <i class="fas fa-quote-left"></i>
-                  <p>
-                    The mobile app Yash developed for us has significantly
-                    improved our customer engagement. His technical expertise
-                    and creative approach were invaluable.
-                  </p>
-                </div>
-                <div class="testimonial-author">
-                  <div class="author-image">
-                    <img
-                      src="https://randomuser.me/api/portraits/men/75.jpg"
-                      alt="Michael T."
-                    />
-                  </div>
-                  <div class="author-info">
-                    <h4>Michael T.</h4>
-                    <span>Director, Retail Innovations</span>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
+              <!-- Testimonial 3 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        Yash's UI/UX design transformed our website completely.
+                        The bounce rate decreased by 60% and user engagement
+                        increased dramatically. His designs are not just
+                        beautiful but highly functional.
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/67.jpg"
+                          alt="Michael Chen"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <span>Marketing Director, BrandVision</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star-half-alt"></i>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Testimonial 4 -->
-            <div class="testimonial-slide swiper-slide">
-              <div class="testimonial-content">
-                <div class="testimonial-quote">
-                  <i class="fas fa-quote-left"></i>
-                  <p>
-                    Yash's ability to understand complex requirements and
-                    deliver elegant solutions is remarkable. We've hired him for
-                    multiple projects and will continue to do so.
-                  </p>
-                </div>
-                <div class="testimonial-author">
-                  <div class="author-image">
-                    <img
-                      src="https://randomuser.me/api/portraits/women/68.jpg"
-                      alt="Emily R."
-                    />
-                  </div>
-                  <div class="author-info">
-                    <h4>Emily R.</h4>
-                    <span>CTO, Enterprise Solutions</span>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
+              <!-- Testimonial 4 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        The AI solution Yash developed for our customer service
+                        department has reduced response times by 75% while
+                        maintaining accuracy. His technical expertise is matched
+                        only by his professionalism.
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/28.jpg"
+                          alt="Emma Rodriguez"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>Emma Rodriguez</h4>
+                        <span>Operations Director, ServiceFirst</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
           </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="blog scroll-animate">
+    <section id="blog" class="blog section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h4 class="section-subtitle">Latest Articles</h4>
           <h2 class="section-title">My Blog</h2>
           <div class="section-divider"></div>
         </div>
         <div class="blog-grid">
           <!-- Blog Post 1 -->
-          <div class="blog-card">
+          <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
             <div class="blog-image">
               <img
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Web Development"
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="React Performance"
               />
-              <div class="blog-badge">Development</div>
+              <div class="blog-badge">Featured</div>
             </div>
             <div class="blog-content">
               <div class="blog-meta">
                 <span><i class="far fa-calendar"></i> June 15, 2023</span>
-                <span><i class="far fa-comments"></i> 24 Comments</span>
+                <span><i class="far fa-comment"></i> 24 Comments</span>
               </div>
-              <h3 class="blog-title">The Future of Web Development in 2023</h3>
+              <h3 class="blog-title">Optimizing React Performance in 2023</h3>
               <p class="blog-excerpt">
-                Exploring the emerging technologies and trends that are shaping
-                the future of web development...
+                Discover the latest techniques to boost your React applications'
+                performance with modern optimization strategies...
               </p>
-              <a href="#" class="blog-link"
-                >Read More <i class="fas fa-arrow-right"></i
-              ></a>
+              <a href="#" class="blog-link">
+                <span>Read More</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
 
           <!-- Blog Post 2 -->
-          <div class="blog-card">
+          <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
             <div class="blog-image">
               <img
-                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80"
-                alt="UI/UX Design"
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="AI in Web Dev"
               />
-              <div class="blog-badge">Design</div>
             </div>
             <div class="blog-content">
               <div class="blog-meta">
                 <span><i class="far fa-calendar"></i> May 28, 2023</span>
-                <span><i class="far fa-comments"></i> 18 Comments</span>
+                <span><i class="far fa-comment"></i> 18 Comments</span>
               </div>
-              <h3 class="blog-title">Principles of Minimalist UI Design</h3>
+              <h3 class="blog-title">Integrating AI in Web Development</h3>
               <p class="blog-excerpt">
-                How to create clean, functional interfaces that enhance user
-                experience without unnecessary elements...
+                How artificial intelligence is revolutionizing web development
+                and what it means for developers in the coming years...
               </p>
-              <a href="#" class="blog-link"
-                >Read More <i class="fas fa-arrow-right"></i
-              ></a>
+              <a href="#" class="blog-link">
+                <span>Read More</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
 
           <!-- Blog Post 3 -->
-          <div class="blog-card">
+          <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
             <div class="blog-image">
               <img
-                src="https://images.unsplash.com/photo-1655720828013-f05510c86eae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="AI Technology"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="CSS Grid"
               />
-              <div class="blog-badge">Technology</div>
             </div>
             <div class="blog-content">
               <div class="blog-meta">
-                <span><i class="far fa-calendar"></i> April 10, 2023</span>
-                <span><i class="far fa-comments"></i> 32 Comments</span>
+                <span><i class="far fa-calendar"></i> April 12, 2023</span>
+                <span><i class="far fa-comment"></i> 32 Comments</span>
               </div>
-              <h3 class="blog-title">Integrating AI into Web Applications</h3>
+              <h3 class="blog-title">Mastering CSS Grid for Complex Layouts</h3>
               <p class="blog-excerpt">
-                Practical guide to implementing artificial intelligence features
-                in your web projects to enhance functionality...
+                A comprehensive guide to creating sophisticated layouts with CSS
+                Grid, with practical examples and best practices...
               </p>
-              <a href="#" class="blog-link"
-                >Read More <i class="fas fa-arrow-right"></i
-              ></a>
+              <a href="#" class="blog-link">
+                <span>Read More</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
-        <div class="blog-footer">
+        <div class="blog-footer" data-aos="fade-up">
           <a href="#" class="btn-primary">
             <span>View All Articles</span>
-            <i class="fas fa-arrow-right"></i>
+            <i class="fas fa-arrow-right btn-icon"></i>
           </a>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact scroll-animate">
+    <section id="contact" class="contact section">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <h4 class="section-subtitle">Get In Touch</h4>
           <h2 class="section-title">Contact Me</h2>
           <div class="section-divider"></div>
         </div>
         <div class="contact-container">
-          <div class="contact-info">
+          <div class="contact-info" data-aos="fade-right">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Location</h3>
+                <p>Rewari, Haryana, India</p>
+              </div>
+            </div>
             <div class="contact-card">
               <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
@@ -1130,9 +1235,7 @@
               <div class="contact-details">
                 <h3>Email</h3>
                 <p>yashsinghfire704@gmail.com</p>
-                <a href="mailto:yashsinghfire704@gmail.com"
-                  >Send Message <i class="fas fa-arrow-right"></i
-                ></a>
+                <a href="mailto:yashsinghfire704@gmail.com">Send Message</a>
               </div>
             </div>
             <div class="contact-card">
@@ -1141,51 +1244,46 @@
               </div>
               <div class="contact-details">
                 <h3>Phone</h3>
-                <p>+91 8814913041</p>
-                <a href="tel:+918814913041"
-                  >Call Me <i class="fas fa-arrow-right"></i
-                ></a>
+                <p>+91 9999999999</p>
+                <a href="tel:+919999999999">Call Me</a>
               </div>
             </div>
             <div class="contact-card">
               <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
+                <i class="fas fa-globe"></i>
               </div>
               <div class="contact-details">
-                <h3>Location</h3>
-                <p>Rewari, Haryana, India</p>
-                <a href="https://maps.google.com" target="_blank"
-                  >View Map <i class="fas fa-arrow-right"></i
-                ></a>
+                <h3>Social Media</h3>
+                <p>Connect with me on various platforms</p>
+                <a
+                  href="https://linkedin.com/in/yash-singh-1824a8310/"
+                  target="_blank"
+                  >View Profile</a
+                >
               </div>
             </div>
           </div>
-          <div class="contact-form">
+          <div class="contact-form" data-aos="fade-left">
             <form id="contactForm">
               <div class="form-group">
-                <input type="text" id="name" name="name" required />
+                <input type="text" id="name" required />
                 <label for="name">Your Name</label>
-                <span class="form-icon"><i class="fas fa-user"></i></span>
+                <i class="fas fa-user form-icon"></i>
               </div>
               <div class="form-group">
-                <input type="email" id="email" name="email" required />
+                <input type="email" id="email" required />
                 <label for="email">Your Email</label>
-                <span class="form-icon"><i class="fas fa-envelope"></i></span>
+                <i class="fas fa-envelope form-icon"></i>
               </div>
               <div class="form-group">
-                <input type="text" id="subject" name="subject" required />
+                <input type="text" id="subject" required />
                 <label for="subject">Subject</label>
-                <span class="form-icon"><i class="fas fa-tag"></i></span>
+                <i class="fas fa-tag form-icon"></i>
               </div>
               <div class="form-group">
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                ></textarea>
+                <textarea id="message" rows="5" required></textarea>
                 <label for="message">Your Message</label>
-                <span class="form-icon"><i class="fas fa-comment"></i></span>
+                <i class="fas fa-comment form-icon"></i>
               </div>
               <button type="submit" class="submit-btn">
                 <span>Send Message</span>
@@ -1198,121 +1296,133 @@
     </section>
 
     <!-- Achievements Section -->
-    <section class="achievements scroll-animate">
+    <section class="achievements section">
       <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">My Milestones</h4>
+          <h2 class="section-title">Achievements</h2>
+          <div class="section-divider"></div>
+        </div>
         <div class="achievements-grid">
-          <div class="achievement-card">
-            <div class="achievement-icon">
-              <i class="fas fa-project-diagram"></i>
-            </div>
-            <div class="achievement-content">
-              <h3 class="achievement-count" data-count="50">0</h3>
-              <p class="achievement-text">Projects Completed</p>
-            </div>
-          </div>
-          <div class="achievement-card">
-            <div class="achievement-icon">
-              <i class="fas fa-users"></i>
-            </div>
-            <div class="achievement-content">
-              <h3 class="achievement-count" data-count="35">0</h3>
-              <p class="achievement-text">Happy Clients</p>
-            </div>
-          </div>
-          <div class="achievement-card">
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
             <div class="achievement-icon">
               <i class="fas fa-code"></i>
             </div>
-            <div class="achievement-content">
-              <h3 class="achievement-count" data-count="150000">0</h3>
-              <p class="achievement-text">Lines of Code</p>
-            </div>
+            <div class="achievement-count">50+</div>
+            <p class="achievement-text">Projects Completed</p>
           </div>
-          <div class="achievement-card">
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
             <div class="achievement-icon">
-              <i class="fas fa-award"></i>
+              <i class="fas fa-users"></i>
             </div>
-            <div class="achievement-content">
-              <h3 class="achievement-count" data-count="8">0</h3>
-              <p class="achievement-text">Awards Won</p>
+            <div class="achievement-count">30+</div>
+            <p class="achievement-text">Happy Clients</p>
+          </div>
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="achievement-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="achievement-count">1000+</div>
+            <p class="achievement-text">Hours Coding</p>
+          </div>
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="achievement-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="achievement-count">15+</div>
+            <p class="achievement-text">Certifications</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">Trusted By</h4>
+          <h2 class="section-title">Clients & Partners</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="clients-slider">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+1"
+                    alt="Client 1"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+2"
+                    alt="Client 2"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+3"
+                    alt="Client 3"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+4"
+                    alt="Client 4"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+5"
+                    alt="Client 5"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+6"
+                    alt="Client 6"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Clients Section
-    <section class="clients scroll-animate">
-      <div class="container">
-        <div class="clients-slider swiper">
-          <div class="swiper-wrapper">
-            <div class="client-slide swiper-slide">
-              <img
-                src="https://via.placeholder.com/150x60?text=Client+1"
-                alt="Client Logo"
-              />
-            </div>
-            <div class="client-slide swiper-slide">
-              <img
-                src="https://via.placeholder.com/150x60?text=Client+2"
-                alt="Client Logo"
-              />
-            </div>
-            <div class="client-slide swiper-slide">
-              <img
-                src="https://via.placeholder.com/150x60?text=Client+3"
-                alt="Client Logo"
-              />
-            </div>
-            <div class="client-slide swiper-slide">
-              <img
-                src="https://via.placeholder.com/150x60?text=Client+4"
-                alt="Client Logo"
-              />
-            </div>
-            <div class="client-slide swiper-slide">
-              <img
-                src="https://via.placeholder.com/150x60?text=Client+5"
-                alt="Client Logo"
-              />
-            </div>
-            <div class="client-slide swiper-slide">
-              <img
-                src="https://via.placeholder.com/150x60?text=Client+6"
-                alt="Client Logo"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
           <div class="footer-about">
-            <a href="#home" class="footer-logo">Yash Singh</a>
+            <a href="#" class="footer-logo">Yash Singh</a>
             <p>
-              Full Stack Developer creating digital experiences that matter.
-              Combining technical expertise with creative problem-solving.
+              A passionate Full Stack Developer dedicated to creating innovative
+              digital experiences that make a difference.
             </p>
             <div class="footer-social">
               <a href="#" class="social-link"
                 ><i class="fab fa-facebook-f"></i
               ></a>
               <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-              <a
-                href="https://www.linkedin.com/in/yash-singh-1824a8310/"
-                class="social-link"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a href="https://github.com/yashsinghdev" class="social-link"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a href="https://instagram.com/yash_rajput.18" class="social-link"
+              <a href="#" class="social-link"
                 ><i class="fab fa-instagram"></i
               ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
             </div>
           </div>
           <div class="footer-links">
@@ -1333,9 +1443,6 @@
                 <a href="#projects"
                   ><i class="fas fa-chevron-right"></i> Projects</a
                 >
-              </li>
-              <li>
-                <a href="#blog"><i class="fas fa-chevron-right"></i> Blog</a>
               </li>
               <li>
                 <a href="#contact"
@@ -1368,11 +1475,6 @@
                 >
               </li>
               <li>
-                <a href="#"
-                  ><i class="fas fa-chevron-right"></i> AI Solutions</a
-                >
-              </li>
-              <li>
                 <a href="#"><i class="fas fa-chevron-right"></i> Consulting</a>
               </li>
             </ul>
@@ -1380,7 +1482,8 @@
           <div class="footer-newsletter">
             <h3 class="footer-title">Newsletter</h3>
             <p>
-              Subscribe to my newsletter for the latest updates and articles.
+              Subscribe to my newsletter for the latest updates, articles, and
+              resources.
             </p>
             <form class="newsletter-form">
               <input type="email" placeholder="Your Email" required />
@@ -1393,6 +1496,7 @@
           <div class="footer-legal">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
+            <a href="#">Cookies Policy</a>
           </div>
         </div>
       </div>
@@ -1403,9 +1507,12 @@
       <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="portfolio.js"></script>
-    <script></script>
+
+    <script type="module" src="portfolio.js"></script>
   </body>
 </html>
+<!-- End of HTML Document -->

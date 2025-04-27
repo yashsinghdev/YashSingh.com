@@ -3,11 +3,2003 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>premium buttion</title>
+    <title>Yash Singh | Full Stack Developer & Designer</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Yash Singh - Full Stack Developer, UI/UX Designer, and Tech Enthusiast"
+    />
+    <meta
+      name="keywords"
+      content="Full Stack Developer, Web Developer, UI/UX Designer, Portfolio, JavaScript, React, Node.js"
+    />
+    <meta name="author" content="Yash Singh" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper JS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.132.2/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.132.2/examples/jsm/"
+        }
+      }
+    </script>
+
     <link rel="stylesheet" href="pt.css" />
+    <style></style>
   </head>
   <body>
-    <div class="btn">Don't click me.</div>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <input type="checkbox" id="theme-switch" class="theme-switch" />
+      <label for="theme-switch" class="theme-label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <span class="theme-ball"></span>
+      </label>
+      <span class="theme-text">Theme</span>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+      <div class="loader-content">
+        <div class="loader-logo">
+          <img src="Image/logo.jpg" alt="Yash Singh Logo" />
+        </div>
+        <div class="loader-text">
+          <span class="loader-char">Y</span>
+          <span class="loader-char">A</span>
+          <span class="loader-char">S</span>
+          <span class="loader-char">H</span>
+          <span class="loader-char"></span>
+          <span class="loader-char">S</span>
+          <span class="loader-char">I</span>
+          <span class="loader-char">N</span>
+          <span class="loader-char">G</span>
+          <span class="loader-char">H</span>
+        </div>
+        <div class="loader-bar">
+          <div class="loader-progress" id="loader-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Background -->
+    <canvas id="threejs-background"></canvas>
+
+    <!-- Cursor Effects -->
+    <div class="cursor cursor-outer"></div>
+    <div class="cursor cursor-inner"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container header-container">
+        <a href="#home" class="logo"><span>Yash Singh</span></a>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="nav-menu" id="nav-menu">
+          <a href="#home" class="nav-link active">
+            <span class="nav-icon"><i class="fas fa-home"></i></span>
+            <span class="nav-text">Home</span>
+          </a>
+          <a href="#about" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-user"></i></span>
+            <span class="nav-text">About</span>
+          </a>
+          <a href="#services" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-cog"></i></span>
+            <span class="nav-text">Services</span>
+          </a>
+          <a href="#skills" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+            <span class="nav-text">Skills</span>
+          </a>
+          <a href="#projects" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-briefcase"></i></span>
+            <span class="nav-text">Projects</span>
+          </a>
+          <a href="#testimonials" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-quote-left"></i></span>
+            <span class="nav-text">Testimonials</span>
+          </a>
+          <a href="#blog" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-blog"></i></span>
+            <span class="nav-text">Blog</span>
+          </a>
+          <a href="#contact" class="nav-link">
+            <span class="nav-icon"><i class="fas fa-envelope"></i></span>
+            <span class="nav-text">Contact</span>
+          </a>
+          <a href="Image/Resume.pdf" class="resume-btn" download>
+            <span class="btn-icon"><i class="fas fa-file-alt"></i></span>
+            <span class="btn-text">Resume</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+            <h4 class="hero-subtitle">Hello, I'm</h4>
+            <h1 class="hero-title">Yash <span>Singh</span></h1>
+            <div class="typewriter" id="typewriter"></div>
+            <p class="slogan">
+              "Code the Front, Power the Back, Rule the Stack!"
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="hero-btn btn-primary">
+                <span>View My Work</span>
+                <i class="fas fa-arrow-right btn-icon"></i>
+              </a>
+              <a href="#contact" class="hero-btn btn-secondary">
+                <span>Hire Me</span>
+                <i class="fas fa-paper-plane btn-icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+            <div class="image-wrapper">
+              <img src="Image/logo.jpg" alt="Yash Singh" class="main-image" />
+              <div class="image-overlay"></div>
+              <div class="tech-badge" style="--i: 1">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                  alt="React"
+                />
+              </div>
+              <div class="tech-badge" style="--i: 2">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                  alt="Node.js"
+                />
+              </div>
+              <div class="tech-badge" style="--i: 3">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  alt="Python"
+                />
+              </div>
+              <div class="tech-badge" style="--i: 4">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                  alt="C++"
+                />
+              </div>
+            </div>
+            <div class="hero-shape"></div>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a
+            href="https://www.instagram.com/yash_rajput.18"
+            target="_blank"
+            class="social-link"
+            data-tooltip="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yash-singh-1824a8310/"
+            target="_blank"
+            class="social-link"
+            data-tooltip="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://github.com/yashsinghdev"
+            target="_blank"
+            class="social-link"
+            data-tooltip="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="mailto:yashsinghfire704@gmail.com"
+            class="social-link"
+            data-tooltip="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="scroll-down">
+        <span>Scroll Down</span>
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">Get To Know More</h4>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="about-container">
+          <div class="about-image" data-aos="fade-right">
+            <div class="image-frame">
+              <img src="Image/logo.jpg" alt="About Yash Singh" />
+              <div class="frame-decoration"></div>
+              <div class="experience-badge">
+                <span class="years">0</span>
+                <span class="text">Years Experience</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-content" data-aos="fade-left">
+            <div class="about-tabs">
+              <button class="tab-btn active" data-tab="personal">
+                Personal
+              </button>
+              <button class="tab-btn" data-tab="education">Education</button>
+              <button class="tab-btn" data-tab="experience">Experience</button>
+            </div>
+            <div class="tab-content active" id="personal-tab">
+              <p>
+                A passionate problem-solver with a strong foundation in
+                programming and a creative mindset. I love crafting digital
+                experiences that blend functionality with aesthetics.
+              </p>
+              <div class="about-details">
+                <div class="detail-item">
+                  <span class="detail-label">Name:</span>
+                  <span class="detail-value">Yash Singh</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Email:</span>
+                  <span class="detail-value">yashsinghfire704@gmail.com</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">From:</span>
+                  <span class="detail-value">India</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Availability:</span>
+                  <span class="detail-value">Open to Work</span>
+                </div>
+              </div>
+              <a href="#contact" class="btn-tertiary">Contact Me</a>
+            </div>
+            <div class="tab-content" id="education-tab">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">2026 - Present</div>
+                  <div class="timeline-content">
+                    <h3>Bachelor's in Computer Application</h3>
+                    <a href="https://igu.ac.in/" target="_blank"
+                      ><p id="education_link">Indra Gandhi University</p></a
+                    >
+                    <p></p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">2018 - 2020</div>
+                  <div class="timeline-content">
+                    <h3>Higher Secondary Education</h3>
+                    <a
+                      href="https://vivekanandschooldharuhera.com/"
+                      target="_blank"
+                      ><p id="education_link">Vivekanand Sr Sec School</p></a
+                    >
+                    <p>Commerce Stream</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content" id="experience-tab">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">2022 - Present</div>
+                  <div class="timeline-content">
+                    <h3>Full Stack Developer</h3>
+                    <p>Freelance</p>
+                    <p>
+                      Developed and maintained web applications using modern
+                      technologies.
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">2021 - 2022</div>
+                  <div class="timeline-content">
+                    <h3>Frontend Developer</h3>
+                    <p>Freelance</p>
+                    <p>Created responsive and interactive user interfaces.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">What I Offer</h4>
+          <h2 class="section-title">My Services</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="services-grid">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">Web Development</h3>
+            <p class="service-description">
+              Custom website development with responsive design and optimal
+              performance.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Responsive Design</span>
+              <span><i class="fas fa-check"></i> SEO Friendly</span>
+              <span><i class="fas fa-check"></i> Performance Optimized</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">App Development</h3>
+            <p class="service-description">
+              Building cross-platform mobile applications with modern
+              frameworks.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Cross-Platform</span>
+              <span><i class="fas fa-check"></i> Native Performance</span>
+              <span><i class="fas fa-check"></i> Offline Support</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">UI/UX Design</h3>
+            <p class="service-description">
+              Creating intuitive user interfaces with exceptional user
+              experience.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> User Research</span>
+              <span><i class="fas fa-check"></i> Prototyping</span>
+              <span><i class="fas fa-check"></i> Usability Testing</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-icon">
+              <i class="fas fa-server"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">Backend Development</h3>
+            <p class="service-description">
+              Robust backend solutions with scalable architecture and secure
+              APIs.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> RESTful APIs</span>
+              <span><i class="fas fa-check"></i> Database Design</span>
+              <span><i class="fas fa-check"></i> Cloud Integration</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-icon">
+              <i class="fas fa-brain"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">AI Solutions</h3>
+            <p class="service-description">
+              Implementing artificial intelligence to solve complex business
+              problems.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Machine Learning</span>
+              <span
+                ><i class="fas fa-check"></i> Natural Language Processing</span
+              >
+              <span><i class="fas fa-check"></i> Computer Vision</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+              <div class="icon-bg"></div>
+            </div>
+            <h3 class="service-title">Consulting</h3>
+            <p class="service-description">
+              Expert advice on technology stack, architecture, and digital
+              transformation.
+            </p>
+            <div class="service-features">
+              <span><i class="fas fa-check"></i> Tech Stack Selection</span>
+              <span><i class="fas fa-check"></i> Architecture Review</span>
+              <span><i class="fas fa-check"></i> Performance Audit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">My Abilities</h4>
+          <h2 class="section-title">Skills & Technologies</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="skills-container">
+          <div class="skills-chart" data-aos="fade-right">
+            <h3 class="chart-title">Technical Skills</h3>
+            <div class="chart-container">
+              <canvas id="skillsChart"></canvas>
+            </div>
+          </div>
+          <div class="skills-content" data-aos="fade-left">
+            <h3 class="skills-subtitle">My Expertise</h3>
+            <p>
+              I've worked with a wide range of technologies in the web
+              development world. From backend to frontend, I love building
+              digital experiences that are both beautiful and functional.
+            </p>
+            <div class="skills-progress">
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>Frontend Development</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>Backend Development</span>
+                  <span>85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>UI/UX Design</span>
+                  <span>80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="progress-header">
+                  <span>Problem Solving</span>
+                  <span>95%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="technologies-grid">
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
+            <h3>Frontend</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  alt="HTML5"
+                />
+                <span>HTML5</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  alt="CSS3"
+                />
+                <span>CSS3</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                />
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                  alt="React"
+                />
+                <span>React</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+                  alt="Vue.js"
+                />
+                <span>Vue.js</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+            <h3>Backend</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                  alt="Node.js"
+                />
+                <span>Node.js</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                  alt="Express"
+                />
+                <span>Express</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  alt="Python"
+                />
+                <span>Python</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                  alt="Django"
+                />
+                <span>Django</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+            <h3>Database</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                  alt="MongoDB"
+                />
+                <span>MongoDB</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                  alt="MySQL"
+                />
+                <span>MySQL</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                  alt="PostgreSQL"
+                />
+                <span>PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-category" data-aos="fade-up" data-aos-delay="400">
+            <h3>DevOps & Tools</h3>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                  alt="Docker"
+                />
+                <span>Docker</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  alt="Git"
+                />
+                <span>Git</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg"
+                  alt="AWS"
+                />
+                <span>AWS</span>
+              </div>
+              <div class="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                  alt="Firebase"
+                />
+                <span>Firebase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">My Work</h4>
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="filter-container" data-aos="fade-up">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="app">App</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="ai">AI/ML</button>
+        </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div
+            class="project-card"
+            data-category="web"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="E-commerce Platform"
+              />
+              <div class="project-overlay">
+                <div class="project-badge">Featured</div>
+                <div class="overlay-content">
+                  <h3>E-commerce Platform</h3>
+                  <p>Full-featured online store with payment integration</p>
+                  <div class="project-tech">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">E-commerce Platform</h3>
+              <p class="project-description">
+                A complete online shopping solution with product management,
+                cart functionality, and secure payments.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
+                </a>
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card"
+            data-category="app"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Task Management App"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>Task Management App</h3>
+                  <p>Productivity application for organizing daily tasks</p>
+                  <div class="project-tech">
+                    <span>React Native</span>
+                    <span>Firebase</span>
+                    <span>Redux</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Task Management App</h3>
+              <p class="project-description">
+                Cross-platform mobile app for task management with cloud sync
+                and offline support.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
+                </a>
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card"
+            data-category="design"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                alt="Portfolio Design"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>Portfolio Design</h3>
+                  <p>Modern portfolio design for creative professionals</p>
+                  <div class="project-tech">
+                    <span>Figma</span>
+                    <span>Adobe XD</span>
+                    <span>UI/UX</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Portfolio Design</h3>
+              <p class="project-description">
+                Custom portfolio design with responsive layouts and interactive
+                elements.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
+                </a>
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-figma"></i>
+                  <span>Design File</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div
+            class="project-card"
+            data-category="ai"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Sentiment Analysis"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>Sentiment Analysis</h3>
+                  <p>AI model for analyzing customer feedback sentiment</p>
+                  <div class="project-tech">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>NLP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Sentiment Analysis</h3>
+              <p class="project-description">
+                Machine learning model that classifies text sentiment with 92%
+                accuracy.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
+                </a>
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div
+            class="project-card"
+            data-category="web"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
+                alt="Blog Platform"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>Blog Platform</h3>
+                  <p>Content management system for bloggers</p>
+                  <div class="project-tech">
+                    <span>Vue.js</span>
+                    <span>Node.js</span>
+                    <span>MySQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Blog Platform</h3>
+              <p class="project-description">
+                Modern blogging platform with rich text editor and user
+                management.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
+                </a>
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div
+            class="project-card"
+            data-category="app"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Fitness Tracker"
+              />
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <h3>Fitness Tracker</h3>
+                  <p>Mobile app for tracking workouts and nutrition</p>
+                  <div class="project-tech">
+                    <span>Flutter</span>
+                    <span>Firebase</span>
+                    <span>Dart</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Fitness Tracker</h3>
+              <p class="project-description">
+                Cross-platform fitness application with exercise database and
+                progress tracking.
+              </p>
+              <div class="project-links">
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  <span>Live Demo</span>
+                </a>
+                <a href="#" class="project-link" target="_blank">
+                  <i class="fab fa-github"></i>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="projects-footer" data-aos="fade-up">
+          <a href="#" class="btn-primary">
+            <span>View All Projects</span>
+            <i class="fas fa-arrow-right btn-icon"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">Client Feedback</h4>
+          <h2 class="section-title">Testimonials</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="testimonials-slider">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Testimonial 1 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        Yash delivered our e-commerce platform ahead of schedule
+                        and exceeded our expectations. His attention to detail
+                        and problem-solving skills are exceptional. We've seen a
+                        40% increase in conversions since launch.
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/32.jpg"
+                          alt="John Smith"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>John Smith</h4>
+                        <span>CEO, TechSolutions Inc.</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 2 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        Working with Yash on our mobile app was a pleasure. He
+                        understood our vision perfectly and brought innovative
+                        ideas to the table. The app has been downloaded over
+                        50,000 times in the first month alone!
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/44.jpg"
+                          alt="Sarah Johnson"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <span>Product Manager, AppVenture</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 3 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        Yash's UI/UX design transformed our website completely.
+                        The bounce rate decreased by 60% and user engagement
+                        increased dramatically. His designs are not just
+                        beautiful but highly functional.
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/67.jpg"
+                          alt="Michael Chen"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <span>Marketing Director, BrandVision</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star-half-alt"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 4 -->
+              <div class="swiper-slide">
+                <div class="testimonial-slide" data-aos="fade-up">
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                      <i class="fas fa-quote-left"></i>
+                      <p>
+                        The AI solution Yash developed for our customer service
+                        department has reduced response times by 75% while
+                        maintaining accuracy. His technical expertise is matched
+                        only by his professionalism.
+                      </p>
+                    </div>
+                    <div class="testimonial-author">
+                      <div class="author-image">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/28.jpg"
+                          alt="Emma Rodriguez"
+                        />
+                      </div>
+                      <div class="author-info">
+                        <h4>Emma Rodriguez</h4>
+                        <span>Operations Director, ServiceFirst</span>
+                        <div class="rating">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">Latest Articles</h4>
+          <h2 class="section-title">My Blog</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="blog-grid">
+          <!-- Blog Post 1 -->
+          <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="React Performance"
+              />
+              <div class="blog-badge">Featured</div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                <span><i class="far fa-comment"></i> 24 Comments</span>
+              </div>
+              <h3 class="blog-title">Optimizing React Performance in 2023</h3>
+              <p class="blog-excerpt">
+                Discover the latest techniques to boost your React applications'
+                performance with modern optimization strategies...
+              </p>
+              <a href="#" class="blog-link">
+                <span>Read More</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 2 -->
+          <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="AI in Web Dev"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> May 28, 2023</span>
+                <span><i class="far fa-comment"></i> 18 Comments</span>
+              </div>
+              <h3 class="blog-title">Integrating AI in Web Development</h3>
+              <p class="blog-excerpt">
+                How artificial intelligence is revolutionizing web development
+                and what it means for developers in the coming years...
+              </p>
+              <a href="#" class="blog-link">
+                <span>Read More</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 3 -->
+          <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="blog-image">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="CSS Grid"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> April 12, 2023</span>
+                <span><i class="far fa-comment"></i> 32 Comments</span>
+              </div>
+              <h3 class="blog-title">Mastering CSS Grid for Complex Layouts</h3>
+              <p class="blog-excerpt">
+                A comprehensive guide to creating sophisticated layouts with CSS
+                Grid, with practical examples and best practices...
+              </p>
+              <a href="#" class="blog-link">
+                <span>Read More</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="blog-footer" data-aos="fade-up">
+          <a href="#" class="btn-primary">
+            <span>View All Articles</span>
+            <i class="fas fa-arrow-right btn-icon"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">Get In Touch</h4>
+          <h2 class="section-title">Contact Me</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info" data-aos="fade-right">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Location</h3>
+                <p>Rewari, Haryana, India</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <p>yashsinghfire704@gmail.com</p>
+                <a href="mailto:yashsinghfire704@gmail.com">Send Message</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <p>+91 9999999999</p>
+                <a href="tel:+919999999999">Call Me</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Social Media</h3>
+                <p>Connect with me on various platforms</p>
+                <a
+                  href="https://linkedin.com/in/yash-singh-1824a8310/"
+                  target="_blank"
+                  >View Profile</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="contact-form" data-aos="fade-left">
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="name" required />
+                <label for="name">Your Name</label>
+                <i class="fas fa-user form-icon"></i>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" required />
+                <label for="email">Your Email</label>
+                <i class="fas fa-envelope form-icon"></i>
+              </div>
+              <div class="form-group">
+                <input type="text" id="subject" required />
+                <label for="subject">Subject</label>
+                <i class="fas fa-tag form-icon"></i>
+              </div>
+              <div class="form-group">
+                <textarea id="message" rows="5" required></textarea>
+                <label for="message">Your Message</label>
+                <i class="fas fa-comment form-icon"></i>
+              </div>
+              <button type="submit" class="submit-btn">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">My Milestones</h4>
+          <h2 class="section-title">Achievements</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="achievement-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="achievement-count">50+</div>
+            <p class="achievement-text">Projects Completed</p>
+          </div>
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="achievement-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="achievement-count">30+</div>
+            <p class="achievement-text">Happy Clients</p>
+          </div>
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="achievement-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="achievement-count">1000+</div>
+            <p class="achievement-text">Hours Coding</p>
+          </div>
+          <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="achievement-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="achievement-count">15+</div>
+            <p class="achievement-text">Certifications</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h4 class="section-subtitle">Trusted By</h4>
+          <h2 class="section-title">Clients & Partners</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="clients-slider">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+1"
+                    alt="Client 1"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+2"
+                    alt="Client 2"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+3"
+                    alt="Client 3"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+4"
+                    alt="Client 4"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+5"
+                    alt="Client 5"
+                  />
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="client-slide">
+                  <img
+                    src="https://via.placeholder.com/150x60?text=Client+6"
+                    alt="Client 6"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <a href="#" class="footer-logo">Yash Singh</a>
+            <p>
+              A passionate Full Stack Developer dedicated to creating innovative
+              digital experiences that make a difference.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul>
+              <li>
+                <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#about"><i class="fas fa-chevron-right"></i> About</a>
+              </li>
+              <li>
+                <a href="#services"
+                  ><i class="fas fa-chevron-right"></i> Services</a
+                >
+              </li>
+              <li>
+                <a href="#projects"
+                  ><i class="fas fa-chevron-right"></i> Projects</a
+                >
+              </li>
+              <li>
+                <a href="#contact"
+                  ><i class="fas fa-chevron-right"></i> Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3 class="footer-title">Services</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Web Development</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> App Development</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> UI/UX Design</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Backend Development</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Consulting</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h3 class="footer-title">Newsletter</h3>
+            <p>
+              Subscribe to my newsletter for the latest updates, articles, and
+              resources.
+            </p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your Email" required />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Yash Singh. All Rights Reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="module">
+      // Three.js Background
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+      const canvas = document.getElementById("threejs-background");
+      const scene = new THREE.Scene();
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+      });
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Camera
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      camera.position.z = 5;
+
+      // Geometry
+      const geometry = new THREE.TorusGeometry(0.8, 0.3, 16, 100);
+      const material = new THREE.MeshBasicMaterial({
+        color: 0x2563eb,
+        wireframe: true,
+      });
+      const torus = new THREE.Mesh(geometry, material);
+      scene.add(torus);
+
+      // Animation
+      function animate() {
+        requestAnimationFrame(animate);
+        torus.rotation.x += 0.001;
+        torus.rotation.y += 0.002;
+        renderer.render(scene, camera);
+      }
+
+      animate();
+
+      // Resize
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      // Main JavaScript
+      document.addEventListener("DOMContentLoaded", function () {
+        // Loader
+        const loader = document.getElementById("loader");
+        const loaderProgress = document.getElementById("loader-progress");
+        const loaderChars = document.querySelectorAll(".loader-char");
+
+        // Animate loader characters
+        loaderChars.forEach((char, index) => {
+          setTimeout(() => {
+            char.style.opacity = "1";
+            char.style.transform = "translateY(0)";
+          }, index * 100);
+        });
+
+        // Simulate loading progress
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+          progress += Math.random() * 10;
+          if (progress >= 100) {
+            progress = 100;
+            clearInterval(progressInterval);
+            setTimeout(() => {
+              loader.style.opacity = "0";
+              loader.style.visibility = "hidden";
+            }, 500);
+          }
+          loaderProgress.style.width = `${progress}%`;
+        }, 200);
+
+        // Theme Toggle
+        const themeSwitch = document.getElementById("theme-switch");
+        themeSwitch.addEventListener("change", function () {
+          document.body.classList.toggle("dark-theme");
+          localStorage.setItem("theme", this.checked ? "dark" : "light");
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem("theme") === "dark") {
+          themeSwitch.checked = true;
+          document.body.classList.add("dark-theme");
+        }
+
+        // Mobile Menu
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Sticky Header
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+
+        // Active Link on Scroll
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", function () {
+          let current = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (pageYOffset >= sectionTop - 300) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active link");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        });
+
+        // Typewriter Effect
+        const typewriter = document.getElementById("typewriter");
+        const professions = [
+          "Full Stack Developer",
+          "UI/UX Designer",
+          "Tech Enthusiast",
+          "Problem Solver",
+        ];
+        let i = 0;
+        let j = 0;
+        let currentProfession = "";
+        let isDeleting = false;
+        let isEnd = false;
+
+        function typeWriter() {
+          isEnd = false;
+          typewriter.innerHTML = currentProfession.substring(0, j);
+
+          if (!isDeleting && j === currentProfession.length) {
+            isEnd = true;
+            isDeleting = true;
+            setTimeout(typeWriter, 2000);
+            return;
+          }
+
+          if (isDeleting && j === 0) {
+            isDeleting = false;
+            i = (i + 1) % professions.length;
+            currentProfession = professions[i];
+            setTimeout(typeWriter, 500);
+            return;
+          }
+
+          if (isDeleting) {
+            j--;
+            setTimeout(typeWriter, 100);
+          } else {
+            j++;
+            setTimeout(typeWriter, 200);
+          }
+        }
+
+        // Start the typewriter effect
+        currentProfession = professions[i];
+        setTimeout(typeWriter, 1000);
+
+        // About Tabs
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const tabId = btn.getAttribute("data-tab");
+
+            // Remove active class from all buttons and contents
+            tabBtns.forEach((btn) => btn.classList.remove("active"));
+            tabContents.forEach((content) =>
+              content.classList.remove("active")
+            );
+
+            // Add active class to clicked button and corresponding content
+            btn.classList.add("active");
+            document.getElementById(`${tabId}-tab`).classList.add("active");
+          });
+        });
+
+        // Experience Counter
+        const experienceBadge = document.querySelector(
+          ".experience-badge .years"
+        );
+        const targetYears = 5;
+        let currentYears = 0;
+        const experienceInterval = setInterval(() => {
+          currentYears++;
+          experienceBadge.textContent = currentYears;
+          if (currentYears >= targetYears) {
+            clearInterval(experienceInterval);
+          }
+        }, 100);
+
+        // Project Filter
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterBtns.forEach((btn) => btn.classList.remove("active"));
+            // Add active class to clicked button
+            btn.classList.add("active");
+
+            const filter = btn.getAttribute("data-filter");
+
+            projectCards.forEach((card) => {
+              if (
+                filter === "all" ||
+                card.getAttribute("data-category") === filter
+              ) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Testimonials Slider
+        const testimonialSwiper = new Swiper(".testimonials-slider .swiper", {
+          loop: true,
+          spaceBetween: 30,
+          centeredSlides: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 2,
+            },
+            1200: {
+              slidesPerView: 3,
+            },
+          },
+        });
+
+        // Clients Slider
+        const clientsSwiper = new Swiper(".clients-slider .swiper", {
+          loop: true,
+          spaceBetween: 30,
+          slidesPerView: 2,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 3,
+            },
+            768: {
+              slidesPerView: 4,
+            },
+            992: {
+              slidesPerView: 5,
+            },
+            1200: {
+              slidesPerView: 6,
+            },
+          },
+        });
+
+        // Skills Chart
+        const skillsChart = new Chart(document.getElementById("skillsChart"), {
+          type: "radar",
+          data: {
+            labels: [
+              "Frontend",
+              "Backend",
+              "UI/UX",
+              "Database",
+              "DevOps",
+              "Problem Solving",
+            ],
+            datasets: [
+              {
+                label: "Technical Skills",
+                data: [90, 85, 80, 75, 70, 95],
+                backgroundColor: "rgba(37, 99, 235, 0.2)",
+                borderColor: "rgba(37, 99, 235, 1)",
+                borderWidth: 2,
+                pointBackgroundColor: "rgba(37, 99, 235, 1)",
+                pointBorderColor: "#fff",
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "rgba(37, 99, 235, 1)",
+              },
+            ],
+          },
+          options: {
+            scales: {
+              r: {
+                angleLines: {
+                  color: "rgba(0, 0, 0, 0.1)",
+                },
+                suggestedMin: 0,
+                suggestedMax: 100,
+                ticks: {
+                  stepSize: 20,
+                  backdropColor: "transparent",
+                },
+                grid: {
+                  color: "rgba(0, 0, 0, 0.1)",
+                },
+                pointLabels: {
+                  font: {
+                    size: 12,
+                    family: "var(--font-primary)",
+                  },
+                  color: "var(--text-color)",
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+            elements: {
+              line: {
+                tension: 0.1,
+              },
+            },
+          },
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            backToTop.classList.add("active");
+          } else {
+            backToTop.classList.remove("active");
+          }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+
+        // Form Submission
+        contactForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+
+          try {
+            const response = await fetch(
+              "https://formspree.io/f/your-form-id",
+              {
+                method: "POST",
+                body: formData,
+                headers: {
+                  Accept: "application/json",
+                },
+              }
+            );
+
+            if (response.ok) {
+              alert("Thank you for your message! I will get back to you soon.");
+              this.reset();
+            } else {
+              throw new Error("Form submission failed");
+            }
+          } catch (error) {
+            alert(
+              "There was a problem sending your message. Please try again later."
+            );
+          }
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.querySelector(".newsletter-form");
+        newsletterForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you for subscribing to my newsletter!");
+          this.reset();
+        });
+
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+          duration: 800,
+          easing: "ease-in-out",
+          once: true,
+          offset: 100,
+        });
+
+        // Custom Cursor
+        const cursorOuter = document.querySelector(".cursor-outer");
+        const cursorInner = document.querySelector(".cursor-inner");
+        let mouseX = 0,
+          mouseY = 0;
+        let outerX = 0,
+          outerY = 0;
+        let innerX = 0,
+          innerY = 0;
+        let isHovering = false;
+
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+
+        const animateCursor = () => {
+          // Inner cursor (fast)
+          innerX = lerp(innerX, mouseX, 0.15);
+          innerY = lerp(innerY, mouseY, 0.15);
+          cursorInner.style.transform = `translate3d(${innerX}px, ${innerY}px, 0)`;
+
+          // Outer cursor (slow)
+          outerX = lerp(outerX, mouseX, 0.1);
+          outerY = lerp(outerY, mouseY, 0.1);
+          cursorOuter.style.transform = `translate3d(${outerX}px, ${outerY}px, 0)`;
+
+          requestAnimationFrame(animateCursor);
+        };
+
+        const lerp = (start, end, t) => {
+          return start * (1 - t) + end * t;
+        };
+
+        // Check for hover states
+        document
+          .querySelectorAll(
+            "a, button, .project-card, .service-card, .tech-item"
+          )
+          .forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+              isHovering = true;
+              cursorOuter.style.transform = `translate3d(${outerX}px, ${outerY}px, 0) scale(1.5)`;
+              cursorOuter.style.backgroundColor = "rgba(37, 99, 235, 0.1)";
+            });
+            el.addEventListener("mouseleave", () => {
+              isHovering = false;
+              cursorOuter.style.transform = `translate3d(${outerX}px, ${outerY}px, 0) scale(1)`;
+              cursorOuter.style.backgroundColor = "transparent";
+            });
+          });
+
+        animateCursor();
+      });
+    </script>
   </body>
-  <script src="pt.js"></script>
 </html>
