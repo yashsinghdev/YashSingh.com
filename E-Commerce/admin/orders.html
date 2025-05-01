@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Management - Ecommerce Platform</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <aside class="sidebar">
+        <div class="admin-logo">
+          <h1>Admin Panel</h1>
+        </div>
+        <nav class="admin-nav">
+          <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li class="active"><a href="orders.html">Orders</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="admin-content">
+        <header class="admin-header">
+          <h2>Order Management</h2>
+          <div class="user-actions">
+            <span class="username">Admin User</span>
+            <a href="#" class="logout">Logout</a>
+          </div>
+        </header>
+
+        <div class="order-filters">
+          <div class="filter-group">
+            <label for="order-status">Filter by Status:</label>
+            <select id="order-status">
+              <option value="all">All Orders</option>
+              <option value="pending">Pending</option>
+              <option value="processing">Processing</option>
+              <option value="shipped">Shipped</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="date-range">Date Range:</label>
+            <input type="date" id="date-from" />
+            <span>to</span>
+            <input type="date" id="date-to" />
+          </div>
+          <button class="btn btn-apply">Apply Filters</button>
+        </div>
+
+        <div class="orders-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Order rows will be loaded here -->
+              <tr>
+                <td>#1001</td>
+                <td>John Doe</td>
+                <td>2023-10-15</td>
+                <td>3</td>
+                <td>$245.99</td>
+                <td>
+                  <select class="status-select">
+                    <option value="pending">Pending</option>
+                    <option value="processing" selected>Processing</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
+                  </select>
+                </td>
+                <td>
+                  <button class="btn btn-view">View</button>
+                  <button class="btn btn-print">Print</button>
+                </td>
+              </tr>
+              <!-- More order rows -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="btn">Previous</button>
+          <span class="page-info">Page 1 of 3</span>
+          <button class="btn">Next</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div class="modal" id="order-modal">
+      <div class="modal-content wide">
+        <span class="close-modal">&times;</span>
+        <h3>Order Details #1001</h3>
+
+        <div class="order-detail-sections">
+          <section class="order-info">
+            <h4>Order Information</h4>
+            <p><strong>Order Date:</strong> October 15, 2023</p>
+            <p><strong>Status:</strong> Processing</p>
+            <p><strong>Payment Method:</strong> Credit Card</p>
+            <p><strong>Transaction ID:</strong> TXN789456123</p>
+          </section>
+
+          <section class="customer-info">
+            <h4>Customer Information</h4>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> john.doe@example.com</p>
+            <p><strong>Phone:</strong> (555) 123-4567</p>
+          </section>
+
+          <section class="shipping-info">
+            <h4>Shipping Address</h4>
+            <p>123 Main Street</p>
+            <p>Apartment 4B</p>
+            <p>New York, NY 10001</p>
+            <p>United States</p>
+          </section>
+
+          <section class="order-items">
+            <h4>Order Items</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Premium Headphones</td>
+                  <td>$199.99</td>
+                  <td>1</td>
+                  <td>$199.99</td>
+                </tr>
+                <tr>
+                  <td>Wireless Charger</td>
+                  <td>$29.99</td>
+                  <td>2</td>
+                  <td>$59.98</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3">Subtotal:</td>
+                  <td>$259.97</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Shipping:</td>
+                  <td>$15.00</td>
+                </tr>
+                <tr>
+                  <td colspan="3">Tax:</td>
+                  <td>$21.02</td>
+                </tr>
+                <tr>
+                  <td colspan="3"><strong>Total:</strong></td>
+                  <td><strong>$295.99</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </section>
+
+          <section class="order-notes">
+            <h4>Order Notes</h4>
+            <textarea
+              placeholder="Add internal notes about this order..."
+            ></textarea>
+            <button class="btn btn-save-notes">Save Notes</button>
+          </section>
+
+          <section class="order-actions">
+            <button class="btn btn-process">Process Order</button>
+            <button class="btn btn-ship">Mark as Shipped</button>
+            <button class="btn btn-cancel">Cancel Order</button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

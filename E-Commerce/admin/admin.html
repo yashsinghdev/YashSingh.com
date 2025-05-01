@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Management - Ecommerce Platform</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <aside class="sidebar">
+        <div class="admin-logo">
+          <h1>Admin Panel</h1>
+        </div>
+        <nav class="admin-nav">
+          <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li class="active"><a href="products.html">Products</a></li>
+            <li><a href="orders.html">Orders</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="admin-content">
+        <header class="admin-header">
+          <h2>Product Management</h2>
+          <div class="user-actions">
+            <span class="username">Admin User</span>
+            <a href="#" class="logout">Logout</a>
+          </div>
+        </header>
+
+        <div class="action-bar">
+          <button class="btn btn-primary" id="add-product-btn">
+            Add New Product
+          </button>
+          <div class="search-box">
+            <input type="text" placeholder="Search products..." />
+            <button class="search-btn">Search</button>
+          </div>
+        </div>
+
+        <div class="products-table">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Product rows will be loaded here -->
+              <tr>
+                <td>1</td>
+                <td>
+                  <img
+                    src="../images/products/product1-thumb.jpg"
+                    alt="Product 1"
+                  />
+                </td>
+                <td>Premium Headphones</td>
+                <td>$199.99</td>
+                <td>45</td>
+                <td>Electronics</td>
+                <td><span class="status active">Active</span></td>
+                <td>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                </td>
+              </tr>
+              <!-- More product rows -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="btn">Previous</button>
+          <span class="page-info">Page 1 of 5</span>
+          <button class="btn">Next</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="product-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 id="modal-title">Add New Product</h3>
+        <form id="product-form">
+          <div class="form-group">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" required />
+          </div>
+          <div class="form-group">
+            <label for="product-price">Price</label>
+            <input type="number" id="product-price" step="0.01" required />
+          </div>
+          <div class="form-group">
+            <label for="product-stock">Stock Quantity</label>
+            <input type="number" id="product-stock" required />
+          </div>
+          <div class="form-group">
+            <label for="product-category">Category</label>
+            <select id="product-category" required>
+              <option value="">Select Category</option>
+              <option value="electronics">Electronics</option>
+              <option value="clothing">Clothing</option>
+              <option value="home">Home & Garden</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="product-description">Description</label>
+            <textarea id="product-description" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="product-images">Product Images</label>
+            <input type="file" id="product-images" multiple />
+          </div>
+          <div class="form-group">
+            <label for="product-status">Status</label>
+            <select id="product-status">
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

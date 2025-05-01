@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart - Ecommerce Platform</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">ShopName</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+          <li class="active"><a href="cart.html">Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="cart-container">
+      <h1>Your Shopping Cart</h1>
+
+      <div class="cart-items">
+        <!-- Cart items will be dynamically loaded here -->
+        <div class="empty-cart-message">
+          <p>Your cart is currently empty.</p>
+          <a href="products.html" class="btn">Continue Shopping</a>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-details">
+          <p>Subtotal: <span class="subtotal">$0.00</span></p>
+          <p>Shipping: <span class="shipping">Calculated at checkout</span></p>
+          <p class="total">Total: <span class="total-amount">$0.00</span></p>
+        </div>
+        <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Ecommerce Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="js/cart.js"></script>
+  </body>
+</html>

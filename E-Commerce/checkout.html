@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Ecommerce Platform</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">ShopName</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li class="active"><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="checkout-container">
+      <h1>Checkout</h1>
+
+      <div class="checkout-steps">
+        <div class="step active">1. Shipping Information</div>
+        <div class="step">2. Payment Method</div>
+        <div class="step">3. Review Order</div>
+      </div>
+
+      <form id="checkout-form">
+        <section class="shipping-info">
+          <h2>Shipping Information</h2>
+          <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" required />
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" required />
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" required />
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" required />
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" required>
+              <option value="">Select Country</option>
+              <option value="US">United States</option>
+              <option value="UK">United Kingdom</option>
+              <!-- More countries -->
+            </select>
+          </div>
+        </section>
+
+        <section class="payment-method hidden">
+          <h2>Payment Method</h2>
+          <div class="form-group">
+            <input type="radio" id="credit-card" name="payment" checked />
+            <label for="credit-card">Credit Card</label>
+          </div>
+          <div class="credit-card-form">
+            <!-- Credit card form fields -->
+          </div>
+        </section>
+
+        <section class="order-review hidden">
+          <h2>Review Your Order</h2>
+          <div class="order-summary">
+            <!-- Order summary will be loaded here -->
+          </div>
+        </section>
+
+        <div class="checkout-actions">
+          <button type="button" class="btn btn-secondary" id="back-btn">
+            Back
+          </button>
+          <button type="button" class="btn btn-primary" id="next-btn">
+            Next
+          </button>
+          <button
+            type="submit"
+            class="btn btn-success hidden"
+            id="place-order-btn"
+          >
+            Place Order
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Ecommerce Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+  </body>
+</html>
