@@ -372,13 +372,13 @@
             transform: scale(1.2);
         }
         
-        .typing-text {
+        /* .typing-text {
             border-right: 3px solid #f59e0b;
             white-space: nowrap;
             overflow: hidden;
             display: inline-block;
             animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }
+        } */
         
         .gold-border {
             border: 2px solid transparent;
@@ -527,7 +527,7 @@
                     Hi, I'm <span class="gradient-text">Yash Singh</span>
                 </h1>
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-accent font-luxury">
-                    <span class="typing-text">Elite Full Stack Developer</span>
+                    <span id="typewriter"></span>
                 </h2>
                 <p class="text-lg mb-8 text-gray-300 dark:text-gray-400 max-w-lg font-light leading-relaxed">
                     Crafting exquisite, high-performance digital experiences with cutting-edge technologies and meticulous attention to detail.
@@ -1415,167 +1415,68 @@ YASHNET
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('#mobile-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Smooth scrolling for all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+  
+        // Typewriter Effect
+        function setupTypewriter() {
+            const typingText = document.getElementById('typewriter');
+            if (!typingText) return;
+
+            typingText.textContent = '';
+            typingText.style.borderRight = '2px solid #f59e0b';
+            
+            const texts = ["Full Stack Developer ", "Front-End Developer ", "Web Designer ", "Problem Solver "];
+            let currentTextIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 150;
+
+            function type() {
+                const currentText = texts[currentTextIndex];
+                typingText.textContent = currentText.substring(0, charIndex);
+                typingText.style.borderRight = (Date.now() % 1000 < 500) ? '2px solid #f59e0b' : '2px solid transparent';
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
+                if (isDeleting) {
+                    charIndex--;
+                    typingSpeed = 50;
+                } else {
+                    charIndex++;
+                    typingSpeed = 150;
                 }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-        
-        // Scroll to top button
-        const scrollTopButton = document.getElementById('scroll-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopButton.classList.add('active');
-            } else {
-                scrollTopButton.classList.remove('active');
-            }
-        });
-        
-        scrollTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            themeToggle.classList.add('dark');
-            mobileThemeToggle.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            themeToggle.classList.remove('dark');
-            mobileThemeToggle.classList.remove('dark');
-        }
-        
-        function toggleTheme() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                themeToggle.classList.remove('dark');
-                mobileThemeToggle.classList.remove('dark');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggle.classList.add('dark');
-                mobileThemeToggle.classList.add('dark');
-            }
-        }
-        
-        themeToggle.addEventListener('click', toggleTheme);
-        mobileThemeToggle.addEventListener('click', toggleTheme);
-        
-        // Initialize Splide slider
-        new Splide('.splide', {
-            type: 'loop',
-            perPage: 1,
-            perMove: 1,
-            gap: '2rem',
-            pagination: true,
-            arrows: true,
-            autoplay: true,
-            interval: 5000,
-            pauseOnHover: true,
-            pauseOnFocus: true,
-            breakpoints: {
-                1024: {
-                    perPage: 1
-                },
-                768: {
-                    perPage: 1
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    isDeleting = true;
+                    typingSpeed = 1000;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    currentTextIndex = (currentTextIndex + 1) % texts.length;
+                    typingSpeed = 500;
                 }
-            }
-        }).mount();
-        
-        // Text animation
-        const heroText = document.querySelector('#home h1');
-        const heroSubtext = document.querySelector('#home h2');
-        
-        setTimeout(() => {
-            heroText.style.animation = 'fadeIn 1s ease-in';
-            heroSubtext.style.animation = 'fadeIn 1s ease-in 0.3s';
-            heroText.style.opacity = '1';
-            heroSubtext.style.opacity = '1';
-        }, 300);
-        
-        // Typing animation for hero subtitle
-        const typingText = document.querySelector('.typing-text');
-        const texts = ["Elite Full Stack Developer", "Digital Craftsman", "Tech Innovator", "Problem Solver"];
-        let currentTextIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let isEnd = false;
-        
-        function type() {
-            const currentText = texts[currentTextIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            
-            if (!isDeleting && charIndex === currentText.length) {
-                isEnd = true;
-                isDeleting = true;
-                setTimeout(type, 2000); // Pause at end of typing
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                currentTextIndex = (currentTextIndex + 1) % texts.length;
-                setTimeout(type, 500); // Pause before typing next text
-            } else {
-                const typingSpeed = isDeleting ? 100 : 150;
+
                 setTimeout(type, typingSpeed);
             }
+
+            type();
         }
-        
-        // Start typing animation after initial animation completes
-        setTimeout(type, 3500);
-    </script>
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupTypewriter();
+        });
+
+    // Also call it when the hero section comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setupTypewriter();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+        observer.observe(heroSection);
+    }
+</script>
+    
 </body>
 </html>
