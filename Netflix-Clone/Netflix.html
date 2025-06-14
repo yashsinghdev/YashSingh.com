@@ -34,7 +34,7 @@
           Ready to watch? Enter your email to create or restart your membership.
         </h3>
         <div class="hero-form">
-          <input type="email" placeholder="Email address" />
+          <input class="input1" type="email" placeholder="Email address" />
           <button class="btn btn-red">Get Started ></button>
         </div>
       </div>
@@ -323,8 +323,8 @@
             membership.
           </h3>
           <div class="email-form">
-            <input type="email" placeholder="Email address" />
-            <button class="btn btn-red">Get Started ></button>
+            <input type="email" class="input2" placeholder="Email address" />
+            <button class="btn btn-red">Get Started</button>
           </div>
         </div>
       </section>
@@ -369,24 +369,6 @@
       </div>
     </footer>
 
-    <script>
-      // Toggle FAQ questions
-      document.querySelectorAll(".question-header").forEach((header) => {
-        header.addEventListener("click", () => {
-          const question = header.parentElement;
-          question.classList.toggle("active");
-        });
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
-    </script>
+    <script src="Netflix.js"></script>
   </body>
 </html>
