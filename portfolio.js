@@ -143,13 +143,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Typewriter Effect
-  const typewriter = document.getElementById("typewriter");
+  // Typewriter Effect
+  const typewriter = document.querySelector("#typewriter");
   const professions = [
     "Full Stack Developer",
     "UI/UX Designer",
     "Tech Enthusiast",
     "Problem Solver",
   ];
+
   let i = 0;
   let j = 0;
   let currentProfession = "";
@@ -186,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Start the typewriter effect
   currentProfession = professions[i];
-  setTimeout(typeWriter, 1000);
+  setTimeout(typeWriter, 1000); // Start typing after initial delay
 
   // About Tabs
   const tabBtns = document.querySelectorAll(".tab-btn");
